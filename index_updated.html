@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Apex Sales System</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Inter','SF Pro',system-ui,sans-serif;background:#2B2D31;color:#E8E8E8;line-height:1.7;font-size:18px}
+    h1{font-size:42px;font-weight:600;letter-spacing:-0.02em;line-height:1.2}
+    h2{font-size:32px;font-weight:500;margin-bottom:1.5em}
+    h3{font-size:24px;font-weight:500;margin-bottom:1em}
+    p{margin-bottom:1.2em}
+    .meta{font-size:14px;color:#9B9B9B}
+    .container{max-width:1200px;margin:0 auto;padding:0 40px}
+    .content-narrow{max-width:680px;margin:0 auto}
+    section{padding:120px 0}
+    header{background:rgba(43,45,49,0.95);backdrop-filter:blur(10px);position:sticky;top:0;z-index:1000;border-bottom:1px solid rgba(155,155,155,0.1)}
+    nav{display:flex;justify-content:space-between;align-items:center;padding:24px 40px}
+    .logo{font-size:14px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase}
+    .nav-links{display:flex;gap:32px;list-style:none}
+    .nav-links a{color:#9B9B9B;text-decoration:none;font-size:14px;transition:color 200ms ease}
+    .nav-links a:hover{color:#E8E8E8}
+    .nav-links a.active{color:#E8E8E8}
+    .hero{text-align:center;padding:160px 0 120px}
+    .hero-title{margin-bottom:24px}
+    .hero-divider{width:200px;height:1px;background:#9B9B9B;margin:32px auto}
+    .hero-subtitle{font-size:20px;color:#9B9B9B;font-weight:400}
+    .hero-tagline{font-size:14px;color:#9B9B9B;margin-top:16px;font-style:italic}
+    .systems-grid{display:grid;gap:32px;margin-top:80px}
+    .system-card{background:rgba(255,255,255,0.03);border:1px solid rgba(155,155,155,0.1);padding:48px;transition:border-color 200ms ease}
+    .system-card:hover{border-color:rgba(155,155,155,0.2)}
+    .system-card.locked{opacity:0.5}
+    .card-header{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+    .card-icon{font-size:32px}
+    .card-title{font-size:24px;font-weight:600}
+    .card-description{color:#9B9B9B;margin-bottom:16px}
+    .card-status{font-size:14px;color:#9B9B9B;font-style:italic}
+    .btn{display:inline-block;padding:16px 32px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#E8E8E8;text-decoration:none;font-size:16px;transition:all 200ms ease;cursor:pointer}
+    .btn:hover:not(:disabled){background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.2)}
+    .btn:disabled{opacity:0.3;cursor:not-allowed}
+    .btn-primary{background:rgba(91,124,153,0.2);border-color:#5B7C99}
+    .btn-primary:hover:not(:disabled){background:rgba(91,124,153,0.3)}
+    blockquote{background:rgba(255,255,255,0.02);border-left:2px solid #5B7C99;padding:32px;margin:32px 0;font-style:italic}
+    footer{border-top:1px solid rgba(155,155,155,0.1);padding:60px 40px;text-align:center;font-size:14px;color:#9B9B9B}
+    .hidden{display:none}
+    .fade-in{animation:fadeIn 400ms ease-in}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+    /* Layout shells */
+    .two-col{display:grid;grid-template-columns:280px 1fr;gap:80px;padding:60px 40px}
+    .sidebar{position:sticky;top:100px;height:fit-content}
+    .sidebar h3{margin-bottom:16px}
+    .list{list-style:none}
+    .list-item{padding:10px 0;color:#9B9B9B;font-size:14px;cursor:pointer;border-bottom:1px solid rgba(155,155,155,0.06)}
+    .list-item:hover{color:#E8E8E8}
+    .list-item.current{color:#E8E8E8;font-weight:600}
+    .search{width:100%;padding:12px 14px;background:rgba(255,255,255,0.04);border:1px solid rgba(155,155,155,0.12);color:#E8E8E8;font-size:14px;outline:none;margin:10px 0 18px}
+    .search::placeholder{color:#9B9B9B}
+    .content{max-width:740px}
+    .content-block{margin-bottom:48px}
+    .content-block h3{color:#5B7C99;font-size:14px;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:16px}
+    .content-block ul{margin-left:24px;margin-bottom:1.5em}
+    .content-block li{margin-bottom:8px}
+    .quote{font-style:italic;color:#9B9B9B;padding-left:24px;border-left:2px solid #5B7C99;margin:24px 0}
+    .nav-controls{display:flex;justify-content:space-between;align-items:center;margin-top:80px;padding-top:40px;border-top:1px solid rgba(155,155,155,0.1)}
+    .checkbox-label{display:flex;align-items:center;gap:12px;cursor:pointer;font-size:16px}
+    .checkbox-label input{width:20px;height:20px;cursor:pointer}
+
+    /* Daily ring */
+    .day-counter{font-size:48px;font-weight:600;margin-bottom:24px;color:#5B7C99}
+    .progress-ring{width:120px;height:120px;margin-bottom:32px}
+
+    /* Modal */
+    .modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.9);z-index:2000;align-items:center;justify-content:center}
+    .modal.active{display:flex}
+    .modal-content{background:#2B2D31;border:1px solid #8B5A5A;max-width:600px;padding:60px;text-align:center}
+    .modal-icon{font-size:48px;margin-bottom:24px}
+    .modal h2{color:#8B5A5A;margin-bottom:32px}
+    .modal-actions{display:flex;gap:16px;justify-content:center;margin-top:40px}
+
+    /* Notices */
+    .notice{background:rgba(255,255,255,0.02);border-left:2px solid rgba(155,155,155,0.35);padding:24px;margin:24px 0;color:#9B9B9B}
+    .notice strong{color:#E8E8E8}
+  </style>
+</head>
+<body>
+<header>
+  <nav>
+    <div class="logo">The Apex Sales System</div>
+    <ul class="nav-links">
+      <li><a href="#home" class="active nav-link" data-page="home">Home</a></li>
+      <li><a href="#apex" class="nav-link" data-page="apex">Apex Training</a></li>
+      <li><a href="#persuasion" class="nav-link" data-page="persuasion">Deep Persuasion</a></li>
+      <li><a href="#appointment" class="nav-link" data-page="appointment">Appointment</a></li>
+      <li><a href="#authority" class="nav-link" data-page="authority">Final Authority</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="app">
+  <!-- HOME -->
+  <div id="page-home" class="page active">
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero-title">THE APEX SALES SYSTEM</h1>
+        <div class="hero-divider"></div>
+        <p class="hero-subtitle">Human Decision Architecture</p>
+        <p class="hero-tagline">Train perception. Preserve agency. Apply authority only when earned.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="content-narrow">
+          <h2>What This Is</h2>
+          <blockquote>
+            <p><strong>This is not a sales course.</strong></p>
+            <p>This is a <strong>nervous system training environment</strong> designed to rewire how your team perceives, decides, and leads.</p>
+            <p>Most training teaches scripts. This teaches <strong>architecture</strong> — the invisible structure beneath every decision.</p>
+          </blockquote>
+
+          <div class="notice">
+            <strong>Content loading:</strong> This site reads training content from JSON files in your repo.
+            If you moved files, update the filenames in the script (bottom of this page).
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 style="text-align:center;margin-bottom:60px;">The Four Systems</h2>
+        <div class="systems-grid">
+          <div class="system-card">
+            <div class="card-header">
+              <div class="card-icon">🔰</div>
+              <div><div class="card-title">APEX TRAINING</div></div>
+            </div>
+            <p class="card-description">Foundation for all users.<br>90-day devotional on self-regulation and perception.</p>
+            <p class="card-status">[Open to all]</p>
+          </div>
+
+          <div class="system-card locked" id="card-persuasion">
+            <div class="card-header">
+              <div class="card-icon">🎯</div>
+              <div><div class="card-title">DEEP PERSUASION</div></div>
+            </div>
+            <p class="card-description">Advanced sales team system.<br>Decision architecture + ethical governance.</p>
+            <p class="card-status">🔒 [Unlocked after APEX progress]</p>
+          </div>
+
+          <div class="system-card locked" id="card-appointment">
+            <div class="card-header">
+              <div class="card-icon">🚪</div>
+              <div><div class="card-title">THE APPOINTMENT IS THE DECISION</div></div>
+            </div>
+            <p class="card-description">Internet managers only.<br>Gate-based appointment architecture.</p>
+            <p class="card-status">🔒 [Unlocked after APEX progress]</p>
+          </div>
+
+          <div class="system-card locked" id="card-authority">
+            <div class="card-header">
+              <div class="card-icon">⚖️</div>
+              <div><div class="card-title">FINAL AUTHORITY</div></div>
+            </div>
+            <p class="card-description">Managers only.<br>High-pressure indecision resolution.</p>
+            <p class="card-status">🔒 [Unlocked after APEX completion]</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-bottom:160px;">
+      <div class="container" style="text-align:center;">
+        <button class="btn btn-primary" id="begin-apex">BEGIN WITH APEX TRAINING</button>
+        <p class="meta" style="margin-top:16px;">First-time users start here. No exceptions.</p>
+      </div>
+    </section>
+  </div>
+
+  <!-- APEX -->
+  <div id="page-apex" class="page hidden">
+    <section class="hero" style="padding:100px 0 60px;">
+      <div class="container">
+        <div style="text-align:center;">
+          <div style="font-size:48px;margin-bottom:16px;">🔰</div>
+          <h1>APEX TRAINING</h1>
+          <div class="hero-divider"></div>
+          <p class="hero-subtitle">90-Day Devotional for All Sales Staff</p>
+          <p class="hero-tagline">Foundation. Discipline. Perception.</p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="content-narrow">
+          <h2>How to Use This</h2>
+          <ul style="margin-left:24px;">
+            <li>One day at a time. No skipping.</li>
+            <li>Apply it in real conversations that same day.</li>
+            <li>Mark the day complete only after you did the practice.</li>
+          </ul>
+          <div style="text-align:center;margin-top:60px;">
+            <button class="btn btn-primary" id="start-day-1">Begin Day 1</button>
+            <p class="meta" style="margin-top:14px;" id="content-status"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- DAILY -->
+  <div id="page-daily" class="page hidden">
+    <div class="two-col">
+      <div class="sidebar">
+        <div class="day-counter" id="current-day-display">DAY 1</div>
+        <svg class="progress-ring" viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="54" fill="none" stroke="rgba(155,155,155,0.1)" stroke-width="4"/>
+          <circle id="progress-circle" cx="60" cy="60" r="54" fill="none" stroke="#5B7C99" stroke-width="4"
+                  stroke-dasharray="339.292" stroke-dashoffset="339.292" transform="rotate(-90 60 60)"/>
+        </svg>
+
+        <input class="search" id="day-search" placeholder="Search days (title/text)..." />
+
+        <ul class="list" id="day-list"></ul>
+      </div>
+
+      <div class="content" id="daily-content"></div>
+    </div>
+  </div>
+
+  <!-- DEEP PERSUASION -->
+  <div id="page-persuasion" class="page hidden">
+    <div class="two-col">
+      <div class="sidebar">
+        <h3>Deep Persuasion</h3>
+        <input class="search" id="pers-search" placeholder="Search chapters..." />
+        <ul class="list" id="pers-list"></ul>
+      </div>
+      <div class="content" id="pers-content"></div>
+    </div>
+  </div>
+
+  <!-- APPOINTMENT -->
+  <div id="page-appointment" class="page hidden">
+    <div class="two-col">
+      <div class="sidebar">
+        <h3>Appointment System</h3>
+        <input class="search" id="appt-search" placeholder="Search chapters..." />
+        <ul class="list" id="appt-list"></ul>
+      </div>
+      <div class="content" id="appt-content"></div>
+    </div>
+  </div>
+
+  <!-- FINAL AUTHORITY -->
+  <div id="page-authority" class="page hidden">
+    <div class="two-col">
+      <div class="sidebar">
+        <h3>Final Authority</h3>
+        <input class="search" id="auth-search" placeholder="Search chapters..." />
+        <ul class="list" id="auth-list"></ul>
+      </div>
+      <div class="content" id="auth-content"></div>
+    </div>
+  </div>
+</main>
+
+<!-- Warning Modal -->
+<div class="modal" id="warning-modal">
+  <div class="modal-content">
+    <div class="modal-icon">⚠️</div>
+    <h2>WARNING</h2>
+    <p>You are about to access training on high-pressure decision resolution.</p>
+    <p><strong>These techniques work.</strong> That is why they are dangerous.</p>
+    <div class="modal-actions">
+      <button class="btn" id="modal-enter">I Understand — Enter</button>
+      <button class="btn" id="modal-exit">Exit</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>The Apex Sales System</p>
+  <p style="margin-top:8px;">Power proves itself most clearly when it is not used.</p>
+</footer>
+
+<script>
+  // ─────────────────────────────────────────────────────────────
+  // STATE
+  // ─────────────────────────────────────────────────────────────
+  const state = {
+    currentPage: 'home',
+    currentDay: 1,
+    completedDays: new Set(),
+    unlockedSystems: new Set(['apex']),
+    authorityWarningShown: false
+  };
+
+  // Loaded data
+  let apexData = null;
+  let persData = null;
+  let apptData = null;
+  let authData = null;
+
+  // ─────────────────────────────────────────────────────────────
+  // HELPERS
+  // ─────────────────────────────────────────────────────────────
+  const $ = (sel) => document.querySelector(sel);
+  const $$ = (sel) => document.querySelectorAll(sel);
+
+  function showWarningModal(){ $('#warning-modal')?.classList.add('active'); }
+  function hideWarningModal(){ $('#warning-modal')?.classList.remove('active'); }
+
+  function escapeHtml(str){
+    return String(str ?? '')
+      .replaceAll('&','&amp;')
+      .replaceAll('<','&lt;')
+      .replaceAll('>','&gt;')
+      .replaceAll('"','&quot;')
+      .replaceAll("'","&#039;");
+  }
+
+  function formatText(str){
+    const safe = escapeHtml(str);
+    // paragraphs
+    return safe
+      .replace(/\r\n/g,'\n')
+      .replace(/\n\n+/g,'</p><p>')
+      .replace(/\n/g,'<br>')
+      .replace(/^/,'<p>')
+      .replace(/$/,'</p>');
+  }
+
+  function setStatus(msg){
+    const el = $('#content-status');
+    if (el) el.textContent = msg;
+  }
+
+  // ─────────────────────────────────────────────────────────────
+  // CONTENT LOADING (JSON in repo)
+  // ─────────────────────────────────────────────────────────────
+  async function loadAllContent(){
+    try{
+      const [a,p,ap,au] = await Promise.all([
+        fetch('./apex_days.json', {cache:'no-store'}),
+        fetch('./deep_persuasion.json', {cache:'no-store'}),
+        fetch('./appointment.json', {cache:'no-store'}),
+        fetch('./final_authority.json', {cache:'no-store'}),
+      ]);
+
+      apexData = await a.json();
+      persData = await p.json();
+      apptData = await ap.json();
+      authData = await au.json();
+
+      setStatus('Content loaded.');
+      buildPersList();
+      buildApptList();
+      buildAuthList();
+      buildDayList();
+      refreshLockedUI();
+    }catch(err){
+      console.error(err);
+      setStatus('Could not load JSON content. Make sure the four JSON files are in the same folder as index.html.');
+    }
+  }
+
+  // ─────────────────────────────────────────────────────────────
+  // NAV / GATING
+  // ─────────────────────────────────────────────────────────────
+  function canAccess(pageName){
+    const requirements = { home:null, apex:'apex', daily:'apex', persuasion:'persuasion', appointment:'appointment', authority:'authority' };
+    const req = requirements[pageName];
+    if(!req) return true;
+    return state.unlockedSystems.has(req);
+  }
+
+  function navigateToPage(pageName){
+    if(!canAccess(pageName)) pageName = 'home';
+
+    $$('.page').forEach(p=>{
+      p.classList.add('hidden');
+      p.classList.remove('active','fade-in');
+    });
+
+    const target = $(`#page-${pageName}`);
+    if(target){
+      target.classList.remove('hidden');
+      target.classList.add('active');
+      requestAnimationFrame(()=>target.classList.add('fade-in'));
+    }
+
+    $$('.nav-link').forEach(link=>{
+      link.classList.toggle('active', link.dataset.page === pageName);
+    });
+
+    state.currentPage = pageName;
+    window.scrollTo(0,0);
+    refreshLockedUI();
+  }
+
+  function refreshLockedUI(){
+    // simple unlock rules based on completed days
+    const completed = state.completedDays.size;
+    if(completed >= 30) state.unlockedSystems.add('persuasion');
+    if(completed >= 60) state.unlockedSystems.add('appointment');
+    if(completed >= 90) state.unlockedSystems.add('authority');
+
+    const cards = [
+      {id:'#card-persuasion', sys:'persuasion'},
+      {id:'#card-appointment', sys:'appointment'},
+      {id:'#card-authority', sys:'authority'},
+    ];
+    cards.forEach(({id,sys})=>{
+      const el=$(id);
+      if(!el) return;
+      el.classList.toggle('locked', !state.unlockedSystems.has(sys));
+    });
+  }
+
+  // ─────────────────────────────────────────────────────────────
+  // APEX DAILY
+  // ─────────────────────────────────────────────────────────────
+  function updateProgressRing(currentDay){
+    const circumference = 339.292;
+    const progress = (currentDay / 90) * circumference;
+    const offset = circumference - progress;
+    const circle = $('#progress-circle');
+    if(circle) circle.style.strokeDashoffset = offset;
+  }
+
+  function buildDayList(filter=''){
+    const list = $('#day-list');
+    if(!list) return;
+    const days = (apexData?.days || []).slice();
+    const q = filter.trim().toLowerCase();
+
+    const filtered = q
+      ? days.filter(d => JSON.stringify(d).toLowerCase().includes(q))
+      : days;
+
+    list.innerHTML = filtered.map(d=>{
+      const current = d.day === state.currentDay ? ' current' : '';
+      const completed = state.completedDays.has(d.day) ? ' completed' : '';
+      return `<li class="list-item${current}${completed}" data-day="${d.day}">Day ${d.day} — ${escapeHtml(d.title)}</li>`;
+    }).join('');
+
+    $$('#day-list .list-item').forEach(item=>{
+      item.addEventListener('click', ()=>{
+        loadDay(Number(item.dataset.day));
+      });
+    });
+  }
+
+  function loadDay(dayNumber){
+    state.currentDay = dayNumber;
+    const day = (apexData?.days || []).find(d => d.day === dayNumber);
+
+    const content = day || {
+      day: dayNumber,
+      title: `Day ${dayNumber}`,
+      signal: 'Content missing. (JSON did not load or day not found.)',
+      misread: '',
+      diagnosis: '',
+      interrupt: [],
+      safeLanguage: '',
+      practice: '',
+      check: ''
+    };
+
+    $('#current-day-display').textContent = `DAY ${dayNumber}`;
+
+    const html = `
+      <h2 style="margin-bottom: 30px;">${escapeHtml(content.title)}</h2>
+
+      <div class="content-block"><h3>The Signal</h3>${formatText(content.signal)}</div>
+      <div class="content-block"><h3>The Misread</h3>${formatText(content.misread)}</div>
+      <div class="content-block"><h3>The Correct Diagnosis</h3>${formatText(content.diagnosis)}</div>
+
+      <div class="content-block">
+        <h3>The Interrupt</h3>
+        <ul>${(content.interrupt || []).map(i => `<li>${escapeHtml(i)}</li>`).join('')}</ul>
+      </div>
+
+      <div class="content-block"><h3>The Safe Language</h3><div class="quote">${formatText(content.safeLanguage)}</div></div>
+      <div class="content-block"><h3>The Practice</h3>${formatText(content.practice)}</div>
+      <div class="content-block"><h3>The Check</h3><div class="meta">${formatText(content.check)}</div></div>
+
+      <div class="nav-controls">
+        <button class="btn" id="prev-day" ${dayNumber===1?'disabled':''}>← Previous Day</button>
+        <label class="checkbox-label">
+          <input type="checkbox" id="day-complete-check">
+          <span>Mark as Complete</span>
+        </label>
+        <button class="btn" id="next-day" ${dayNumber===90?'disabled':''}>Next Day →</button>
+      </div>
+    `;
+
+    $('#daily-content').innerHTML = html;
+
+    updateProgressRing(dayNumber);
+    buildDayList($('#day-search')?.value || '');
+
+    const completeCheck = $('#day-complete-check');
+    const nextBtn = $('#next-day');
+    const prevBtn = $('#prev-day');
+
+    completeCheck.checked = state.completedDays.has(dayNumber);
+
+    completeCheck.addEventListener('change', (e)=>{
+      if(e.target.checked) state.completedDays.add(dayNumber);
+      else state.completedDays.delete(dayNumber);
+      refreshLockedUI();
+      buildDayList($('#day-search')?.value || '');
+    });
+
+    nextBtn?.addEventListener('click', ()=>{ if(dayNumber<90) loadDay(dayNumber+1); });
+    prevBtn?.addEventListener('click', ()=>{ if(dayNumber>1) loadDay(dayNumber-1); });
+  }
+
+  // ─────────────────────────────────────────────────────────────
+  // CHAPTER SYSTEM PAGES
+  // ─────────────────────────────────────────────────────────────
+  function buildChapterList(data, listSel, searchSel, onPick, currentKey){
+    const list = $(listSel);
+    if(!list) return;
+    const q = ($(searchSel)?.value || '').trim().toLowerCase();
+    const chapters = (data?.chapters || []).slice();
+    const filtered = q
+      ? chapters.filter(c => (`${c.number} ${c.title} ${c.content}`).toLowerCase().includes(q))
+      : chapters;
+
+    list.innerHTML = filtered.map(c=>{
+      const cur = (String(c.number) === String(currentKey)) ? ' current' : '';
+      return `<li class="list-item${cur}" data-num="${c.number}">${c.number}. ${escapeHtml(c.title)}</li>`;
+    }).join('');
+
+    $$(listSel + ' .list-item').forEach(item=>{
+      item.addEventListener('click', ()=> onPick(Number(item.dataset.num)));
+    });
+  }
+
+  function renderChapter(data, num, contentSel, titlePrefix){
+    const container = $(contentSel);
+    if(!container) return;
+    const chap = (data?.chapters || []).find(c => Number(c.number) === Number(num));
+    if(!chap){
+      container.innerHTML = `<h2>${escapeHtml(titlePrefix)} — Chapter ${num}</h2><div class="notice">Chapter not found.</div>`;
+      return;
+    }
+    container.innerHTML = `
+      <h2 style="margin-bottom:16px;">${escapeHtml(titlePrefix)} — Chapter ${chap.number}</h2>
+      <h3 style="color:#9B9B9B;margin-bottom:26px;">${escapeHtml(chap.title)}</h3>
+      ${formatText(chap.content)}
+    `;
+  }
+
+  let currentPers = 1, currentAppt = 0, currentAuth = 1;
+
+  function buildPersList(){ buildChapterList(persData, '#pers-list', '#pers-search', (n)=>{ currentPers=n; renderChapter(persData,n,'#pers-content','Deep Persuasion'); buildPersList(); }, currentPers); if(!$('#pers-content')?.innerHTML) renderChapter(persData,currentPers,'#pers-content','Deep Persuasion'); }
+  function buildApptList(){ buildChapterList(apptData, '#appt-list', '#appt-search', (n)=>{ currentAppt=n; renderChapter(apptData,n,'#appt-content','Appointment'); buildApptList(); }, currentAppt); if(!$('#appt-content')?.innerHTML) renderChapter(apptData,currentAppt,'#appt-content','Appointment'); }
+  function buildAuthList(){ buildChapterList(authData, '#auth-list', '#auth-search', (n)=>{ currentAuth=n; renderChapter(authData,n,'#auth-content','Final Authority'); buildAuthList(); }, currentAuth); if(!$('#auth-content')?.innerHTML) renderChapter(authData,currentAuth,'#auth-content','Final Authority'); }
+
+  // ─────────────────────────────────────────────────────────────
+  // WIRES
+  // ─────────────────────────────────────────────────────────────
+  $$('.nav-link').forEach(link=>{
+    link.addEventListener('click', (e)=>{
+      e.preventDefault();
+      const page = link.dataset.page;
+
+      if(page === 'authority'){
+        if(!state.unlockedSystems.has('authority')){
+          navigateToPage('home');
+          return;
+        }
+        if(!state.authorityWarningShown){
+          showWarningModal();
+          return;
+        }
+      }
+      navigateToPage(page);
+    });
+  });
+
+  $('#begin-apex')?.addEventListener('click', ()=> navigateToPage('apex'));
+  $('#start-day-1')?.addEventListener('click', ()=>{
+    navigateToPage('daily');
+    loadDay(1);
+  });
+
+  $('#day-search')?.addEventListener('input', (e)=> buildDayList(e.target.value));
+  $('#pers-search')?.addEventListener('input', ()=> buildPersList());
+  $('#appt-search')?.addEventListener('input', ()=> buildApptList());
+  $('#auth-search')?.addEventListener('input', ()=> buildAuthList());
+
+  $('#modal-enter')?.addEventListener('click', ()=>{
+    state.authorityWarningShown = true;
+    hideWarningModal();
+    navigateToPage('authority');
+  });
+  $('#modal-exit')?.addEventListener('click', hideWarningModal);
+
+  // ─────────────────────────────────────────────────────────────
+  // INIT
+  // ─────────────────────────────────────────────────────────────
+  navigateToPage('home');
+  loadAllContent();
+</script>
+</body>
+</html>

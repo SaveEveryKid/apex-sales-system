@@ -1,0 +1,1136 @@
+{
+  "version": 1,
+  "days": [
+    {
+      "day": 1,
+      "title": "The Body Speaks First",
+      "signal": "Before anyone speaks, you notice something subtle: they shift in their seat, break eye contact,\nor their breath shortens.",
+      "misread": "Rookies rush to fill the space — offering reassurance, re-explaining, or trying to “fix it.”",
+      "diagnosis": "This is a Layer 1 moment — the nervous system is signaling lack of safety.\nUntil physiological safety is restored, no logic or language can land.",
+      "interrupt": [
+        "Stop speaking.",
+        "Drop all forward motion (no leaning in, no nodding, no gestures).",
+        "Exhale slowly.",
+        "Do not correct, soothe, or explain."
+      ],
+      "safeLanguage": "“Take your time.”\nThen: silence.",
+      "practice": "Today, when you feel the urge to help, pause.\nDo nothing for 10 full seconds. Let the system settle.",
+      "check": "Did I respond to their safety — or just my own discomfort?\nIn Sales: You’re about to jump in when a client frowns. Stop. Let the moment\nbreathe."
+    },
+    {
+      "day": 2,
+      "title": "Silence Is Signal, Not Threat",
+      "signal": "There’s a pause after you speak. It feels longer than it “should.”",
+      "misread": "Amateurs fill the silence, assuming the other person is confused, resistant, or disengaged.",
+      "diagnosis": "The nervous system is processing. This is often integration, not objection.",
+      "interrupt": [
+        "Hold your posture.",
+        "Keep your face neutral.",
+        "Let the silence work for you.",
+        "Do not interpret silence as rejection."
+      ],
+      "safeLanguage": "None.\nSilence is the intervention.",
+      "practice": "Let silence last five seconds longer than you’re comfortable with.",
+      "check": "Did I interrupt clarity because I feared losing control?\nIn Sales: You ask a buying question. They pause. You feel the urge to explain the\nvalue again. Don’t."
+    },
+    {
+      "day": 3,
+      "title": "Agreement Is Not Readiness",
+      "signal": "They say “yes” — but their body stays still. No lean-in. No change in breath. Eyes avoid yours.",
+      "misread": "Rookies treat verbal agreement as full commitment — and start advancing.",
+      "diagnosis": "This is a Layer 3 conflict (autonomy).\nThey may be compliant in words, but not congruent in action.",
+      "interrupt": [
+        "Stop pushing forward.",
+        "Shift from talking to watching.",
+        "Signal space instead of urgency."
+      ],
+      "safeLanguage": "“Something feels a little open still — what’s on your mind?”",
+      "practice": "Today, question one “yes” instead of building momentum on it.",
+      "check": "Did I value clarity over motion?\nIn Sales: A client says, “Sure, that makes sense.” But their energy pulls back. Don’t\nlaunch the contract. Pause."
+    },
+    {
+      "day": 4,
+      "title": "The Urge Is the Alarm",
+      "signal": "You feel a sudden push: to close, confirm, or move forward quickly.",
+      "misread": "Many confuse this with intuition. They think, “Now’s the moment.”",
+      "diagnosis": "This is attachment, not insight.\nThe body is reacting from fear of loss or need to secure an outcome.",
+      "interrupt": [
+        "Lean back.",
+        "Cut your word count in half.",
+        "Drop your voice one level.",
+        "Pause one full breath."
+      ],
+      "safeLanguage": "“No rush.”",
+      "practice": "Every time you feel urgency today — pause and breathe before responding.",
+      "check": "Was that urgency about them — or about me?\nIn Sales: You sense the close is near and start talking faster. Stop. Let it land."
+    },
+    {
+      "day": 5,
+      "title": "Defensiveness Is a Signal, Not a Wall",
+      "signal": "They cross their arms. Their responses tighten. Energy contracts.",
+      "misread": "Amateurs see this as rejection — and push harder.",
+      "diagnosis": "This is Layer 1 threat detection.\nThey’re not saying no — they’re scanning for safety.",
+      "interrupt": [
+        "Reduce intensity (lower volume, soften gaze).",
+        "Remove any implied consequence.",
+        "Name the freedom."
+      ],
+      "safeLanguage": "“You don’t need to decide anything today.”",
+      "practice": "Today, explicitly remove urgency once — even if it costs momentum.",
+      "check": "Did I confuse pressure with strength?\nIn Sales: You notice resistance. Don’t double-down on value. Remove pressure."
+    },
+    {
+      "day": 6,
+      "title": "Your Body Reveals the Truth",
+      "signal": "You’re leaning forward, nodding quickly, over-explaining.",
+      "misread": "You think it’s enthusiasm — or connection.",
+      "diagnosis": "It’s somatic attachment.\nYour body is showing need before your words do.",
+      "interrupt": [
+        "Sit back fully.",
+        "Uncross your arms.",
+        "Stop nodding.",
+        "Lower your tempo."
+      ],
+      "safeLanguage": "“This is completely your call.”",
+      "practice": "Today, lean back and ground your body during a key decision moment.",
+      "check": "Did my body pressure them — even when my words didn’t?\nIn Sales: You think you’re being warm. But your forward-leaning energy is flooding\ntheir space."
+    },
+    {
+      "day": 7,
+      "title": "Needing the Yes Corrupts the Yes",
+      "signal": "You feel relief at the yes — before you’ve even confirmed full understanding.",
+      "misread": "You move forward. You call it a win.",
+      "diagnosis": "You’ve attached your worth to the outcome.\nThis is identity entanglement.",
+      "interrupt": [
+        "Pause after the yes.",
+        "Ask again — without needing to be right.",
+        "Reconfirm their agency."
+      ],
+      "safeLanguage": "“We can slow this down if you want.”",
+      "practice": "After one “yes” today, slow down — don’t speed up.",
+      "check": "Did I protect their decision — or protect my ego?\nIn Sales: You hear “Yes, this sounds good,” and pull out the paperwork. Wait.\nDouble-check alignment."
+    },
+    {
+      "day": 8,
+      "title": "Narrowing Choices Is Covert Control",
+      "signal": "You feel tempted to simplify options so they’ll “choose faster.”",
+      "misread": "You assume narrowing removes confusion.",
+      "diagnosis": "You’re entering Layer 3 territory — attempting to constrain autonomy.",
+      "interrupt": [
+        "Reintroduce “no” as a valid path.",
+        "Offer an expanded frame.",
+        "Make space, not funnels."
+      ],
+      "safeLanguage": "“Doing nothing is also a real option.”",
+      "practice": "Offer a non-action path once today.",
+      "check": "Did I respect freedom — even when it weakened my position?\nIn Sales: You offer two packages and steer toward one. Instead, say: “Or, of course,\nnot moving forward now is totally valid too.”"
+    },
+    {
+      "day": 9,
+      "title": "Over-Explaining Is a Leak",
+      "signal": "You keep talking after the point is clear.",
+      "misread": "You think they need more data.",
+      "diagnosis": "This is self-justification, not clarity.\nThe attachment is leaking through your words.",
+      "interrupt": [
+        "Stop mid-sentence.",
+        "Let the point breathe.",
+        "Let discomfort rise."
+      ],
+      "safeLanguage": "“That’s the information. Take it or leave it.”",
+      "practice": "Say less than feels safe once today.",
+      "check": "Was I clarifying — or trying to convince?\nIn Sales: You just made the point. Let it sit. Don’t chase agreement."
+    },
+    {
+      "day": 10,
+      "title": "Calm Is Contagious",
+      "signal": "They’re mirroring your energy — your tone, posture, speed.",
+      "misread": "You think this is rapport — and speed up even more.",
+      "diagnosis": "This is state transfer.\nThey are in your nervous system’s orbit.",
+      "interrupt": [
+        "Slow down again.",
+        "Lower tone.",
+        "Let stillness anchor the room."
+      ],
+      "safeLanguage": "“We’ve got time.”",
+      "practice": "Deliberately de-escalate your energy once today — and observe what changes.",
+      "check": "Did I use calm to stabilize — or to control?\nIn Sales: When they follow your pace, lead them back to calm, not urgency."
+    },
+    {
+      "day": 11,
+      "title": "Don’t Solve the Wrong Problem",
+      "signal": "They ask questions… but none of them move the decision forward.",
+      "misread": "You assume they need more information — so you keep answering.",
+      "diagnosis": "Layer 3 tension is hiding behind Layer 2 questions.\nThey don’t need more facts. They need more freedom or clarity.",
+      "interrupt": [
+        "Stop supplying more data.",
+        "Shift into diagnostic mode.",
+        "Clarify their internal conflict, not your product."
+      ],
+      "safeLanguage": "“What does this decision touch for you, beyond the details?”",
+      "practice": "When a second or third question comes today — ask what the decision means before\nanswering.",
+      "check": "Was I feeding confusion — or clarifying tension?\nIn Sales: If someone asks about warranty length after 45 minutes of discussion…\nstop and ask what they’re really deciding on."
+    },
+    {
+      "day": 12,
+      "title": "Logic Can’t Unseat Fear",
+      "signal": "They nod as you explain… but nothing in their behavior changes.",
+      "misread": "You assume they need a better pitch. You try to be clearer, smarter, more convincing.",
+      "diagnosis": "They’re not confused. They’re afraid.\nThis is Layer 1 — safety has not been restored.",
+      "interrupt": [
+        "Lower the intensity.",
+        "Normalize caution.",
+        "Remove future consequences."
+      ],
+      "safeLanguage": "“It makes sense to be cautious here.”",
+      "practice": "Name fear once today — without trying to resolve it.",
+      "check": "Did I try to out-logic a feeling?\nIn Sales: The client understands the numbers — but they still hesitate. You don’t\nneed to “overcome” them. Acknowledge the risk instead."
+    },
+    {
+      "day": 13,
+      "title": "When Identity Is at Risk",
+      "signal": "They defend themselves emotionally. Their language becomes personal, not logical.",
+      "misread": "You bring out more facts, believing truth will win.",
+      "diagnosis": "This is a Layer 4 moment — identity is involved.\nFacts now feel like an attack on self.",
+      "interrupt": [
+        "Pause persuasion.",
+        "Validate their core identity.",
+        "Separate the decision from their dignity."
+      ],
+      "safeLanguage": "“I can see why that would matter to you.”",
+      "practice": "Separate the person from the choice once today.",
+      "check": "Did I preserve their identity — or challenge it?\nIn Sales: A founder resists your strategy. It’s not about logic. It’s about ego and\nownership. Acknowledge that."
+    },
+    {
+      "day": 14,
+      "title": "Resistance Is Data, Not Disrespect",
+      "signal": "They hesitate, stall, or subtly deflect.",
+      "misread": "You interpret it as pushback or objection — and you escalate your pitch.",
+      "diagnosis": "Resistance = misalignment of pace or unspoken tension.",
+      "interrupt": [
+        "Stop forward motion.",
+        "Ask into the friction.",
+        "Treat resistance as feedback."
+      ],
+      "safeLanguage": "“What part of this doesn’t sit right yet?”",
+      "practice": "Today, treat one moment of resistance as data to explore — not as a block to overcome.",
+      "check": "Did I fight resistance — or learn from it?\nIn Sales: The buyer says “Let me think about it.” Don’t push. Ask what feels\nincomplete."
+    },
+    {
+      "day": 15,
+      "title": "Diagnose Before You Speak",
+      "signal": "You feel the pressure to respond immediately.",
+      "misread": "You equate speed with competence — so you answer fast to sound “on it.”",
+      "diagnosis": "Speed skips layer detection.\nFast answers are often wrong answers in disguise.",
+      "interrupt": [
+        "Take a full breath before speaking.",
+        "Ask internally: “Which layer is this?”",
+        "Then respond from precision, not reflex."
+      ],
+      "safeLanguage": "None needed — the work is internal.",
+      "practice": "Delay one response today while identifying the active layer underneath.",
+      "check": "Did I respond to the moment — or the system beneath it?\nIn Sales: Before countering an objection, ask what kind of fear, freedom, or identity\nmight be driving it."
+    },
+    {
+      "day": 16,
+      "title": "Fewer Words, More Authority",
+      "signal": "You notice yourself explaining longer than necessary.",
+      "misread": "You think more words = more value.",
+      "diagnosis": "Excess language leaks insecurity.\nBrevity signals clarity.",
+      "interrupt": [
+        "Stop talking before you’re fully done.",
+        "Let the silence hold.",
+        "Let your words land unfinished."
+      ],
+      "safeLanguage": "“That’s the part that matters.”",
+      "practice": "Cut one explanation short on purpose today.",
+      "check": "Was I speaking to reassure — or to inform?\nIn Sales: You’re asked, “How does this help us scale?” Stop after the first clear\nsentence. Don’t chase agreement."
+    },
+    {
+      "day": 17,
+      "title": "Precision Prevents Pushback",
+      "signal": "They react defensively to something you said.",
+      "misread": "You assume they’re disagreeing with your idea.",
+      "diagnosis": "Your language was vague or overly broad — and it triggered an identity or agency defense.",
+      "interrupt": [
+        "Step back.",
+        "Narrow your language.",
+        "Clarify your intent without blame."
+      ],
+      "safeLanguage": "“Let me say that more clearly.”",
+      "practice": "Today, revise one broad statement into something precise.",
+      "check": "Did my words create unnecessary friction?\nIn Sales: Instead of “This will transform your business,” try “This can cut your client\nchurn by 20%.”"
+    },
+    {
+      "day": 18,
+      "title": "Remove the Future Trap",
+      "signal": "You’re tempted to invoke urgency, deadlines, or “loss if you don’t act.”",
+      "misread": "You think higher stakes = more motivation.",
+      "diagnosis": "Pressure into the future triggers avoidance in the present.",
+      "interrupt": [
+        "Remove consequence framing.",
+        "Anchor in current safety, not future pain."
+      ],
+      "safeLanguage": "“Right now, we’re just understanding your options.”",
+      "practice": "Strip urgency from one interaction today — even when it feels counter-intuitive.",
+      "check": "Did I use time pressure as leverage?\nIn Sales: Deadlines kill trust. Show the decision is meaningful without fear tactics."
+    },
+    {
+      "day": 19,
+      "title": "Tone Is Influence",
+      "signal": "Your voice lifts in energy — or in pressure — without realizing it.",
+      "misread": "You think this shows conviction. You want to inspire.",
+      "diagnosis": "Escalated tone is often read as coercion, not clarity.",
+      "interrupt": [
+        "Lower your voice by 10%.",
+        "Slow your cadence.",
+        "Drop the “performer” tone."
+      ],
+      "safeLanguage": "“That’s an option.”",
+      "practice": "Speak one key sentence in a slower, flatter tone today.",
+      "check": "Did my voice invite autonomy — or pressure?\nIn Sales: You think your passion is persuasive. It might be overwhelming. Try calm."
+    },
+    {
+      "day": 20,
+      "title": "Let Them Say It First",
+      "signal": "You’re about to deliver the insight for them.",
+      "misread": "You think naming the answer is leadership.",
+      "diagnosis": "Insight stated = advice.\nInsight discovered = ownership.",
+      "interrupt": [
+        "Ask the question.",
+        "Let the silence grow.",
+        "Let them take the step."
+      ],
+      "safeLanguage": "“What are you thinking right now?”",
+      "practice": "Hold silence once today until they speak into the clarity.",
+      "check": "Did I steal ownership — or invite it?\nDays 21–30: Agency Preservation\nThis block installs the reflex of protecting autonomy — the line in the sand that\nseparates clean influence from corruption.\n🔹"
+    },
+    {
+      "day": 21,
+      "title": "Give It Back",
+      "signal": "",
+      "misread": "",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": "Did I protect their freedom — or steal their choice?\n🔹"
+    },
+    {
+      "day": 22,
+      "title": "Ask First",
+      "signal": "",
+      "misread": "",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": "Did I wait to be invited — or force my insight onto the moment?\n🔹"
+    },
+    {
+      "day": 23,
+      "title": "Leave the Door Open",
+      "signal": "",
+      "misread": "",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": "Did I protect their right to leave — or box them in with my charm?\n🔹"
+    },
+    {
+      "day": 24,
+      "title": "Don’t Punish Delay",
+      "signal": "",
+      "misread": "",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": "Did I nurture self-trust — or punish hesitation?\n🔹"
+    },
+    {
+      "day": 25,
+      "title": "Do Nothing (On Purpose)",
+      "signal": "",
+      "misread": "",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": "Did I hold my center — or chase momentum?\n🔹"
+    },
+    {
+      "day": 26,
+      "title": "Never Corner the Self",
+      "signal": "",
+      "misread": "",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": "Did I choose to be right — or to protect the relationship?\n🔹"
+    },
+    {
+      "day": 27,
+      "title": "Don’t Brand Them",
+      "signal": "",
+      "misread": "",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": "Did I reflect their values — or assign them one?\n🔹"
+    },
+    {
+      "day": 28,
+      "title": "Let the Story Stand",
+      "signal": "",
+      "misread": "",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": "Did I honor their story — or rewrite it to suit me?\n🔹"
+    },
+    {
+      "day": 29,
+      "title": "Notice the Micro-Flinch",
+      "signal": "",
+      "misread": "",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": "Did I protect the bond — or let it fray?\n🔹"
+    },
+    {
+      "day": 30,
+      "title": "Identity Is Not a Lever",
+      "signal": "",
+      "misread": "",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": "Did I preserve their self — or exploit it?\nDays 31–40: Truth Over Outcome\nThis block trains the hardest discipline of restrained influence: telling the truth, even when it\ncosts you the sale."
+    },
+    {
+      "day": null,
+      "title": "DAY 31 – Say the Thing That Risks the Deal",
+      "signal": "You notice a mismatch — something that could unravel later.",
+      "misread": "Amateurs protect momentum and stay silent.",
+      "diagnosis": "Avoiding hard truth now creates distrust later.",
+      "interrupt": [
+        "Pause.",
+        "Name the risk plainly."
+      ],
+      "safeLanguage": "“There’s something you should know before you decide.”",
+      "practice": "Say the hard truth once today — even if it costs you.",
+      "check": "Did I protect the person — or the outcome?"
+    },
+    {
+      "day": null,
+      "title": "DAY 32 – Accuracy Beats Persuasion",
+      "signal": "You want to round, soften, or generalize numbers.",
+      "misread": "Amateurs believe smoother language sells better.",
+      "diagnosis": "Distortion costs long-term trust.",
+      "interrupt": [
+        "Be precise.",
+        "Say the exact number."
+      ],
+      "safeLanguage": "“I want to be exact here.”",
+      "practice": "Choose precision once today — even if it slows the sale.",
+      "check": "Did I trade clarity for comfort?"
+    },
+    {
+      "day": null,
+      "title": "DAY 33 – Don’t Argue with Reality",
+      "signal": "They resist a fact you’ve presented.",
+      "misread": "Amateurs try to win the argument.",
+      "diagnosis": "Reality doesn’t need defense.",
+      "interrupt": [
+        "Let the truth land.",
+        "Stop selling."
+      ],
+      "safeLanguage": "“That’s the situation as it is.”",
+      "practice": "Let one truth stand without defending it today.",
+      "check": "Did I trust truth — or fight to win?"
+    },
+    {
+      "day": null,
+      "title": "DAY 34 – Clean Loss Is Better Than Dirty Win",
+      "signal": "You feel a close coming — but something’s off.",
+      "misread": "Amateurs close anyway.",
+      "diagnosis": "A misaligned “yes” becomes a future problem.",
+      "interrupt": [
+        "Slow down.",
+        "Offer an exit."
+      ],
+      "safeLanguage": "“We can stop here if this doesn’t feel right.”",
+      "practice": "End one conversation cleanly today.",
+      "check": "Did I chase commission — or protect alignment?"
+    },
+    {
+      "day": null,
+      "title": "DAY 35 – Let Them Walk with Dignity",
+      "signal": "They’re disengaging politely.",
+      "misread": "Amateurs try to save it at the last second.",
+      "diagnosis": "A graceful exit builds return.",
+      "interrupt": [
+        "Let go.",
+        "End with warmth."
+      ],
+      "safeLanguage": "“I’m glad you took the time to look.”",
+      "practice": "Let one prospect leave without friction today.",
+      "check": "Did I preserve dignity?"
+    },
+    {
+      "day": null,
+      "title": "DAY 36 – The Long Game Is Real",
+      "signal": "You feel pressure from time, quota, or competition.",
+      "misread": "Amateurs sell for today’s number.",
+      "diagnosis": "Short-term wins distort long-term trust.",
+      "interrupt": [
+        "Zoom out.",
+        "Anchor in your future reputation."
+      ],
+      "safeLanguage": "“This should still feel good six months from now.”",
+      "practice": "Make one decision today that favors return business.",
+      "check": "Did I optimize for today — or for the lifetime?"
+    },
+    {
+      "day": null,
+      "title": "DAY 37 – Referrals Are Built in Silence",
+      "signal": "You consider asking for a referral.",
+      "misread": "Amateurs ask too early.",
+      "diagnosis": "Trust must precede advocacy.",
+      "interrupt": [
+        "Remove the ask.",
+        "Earn the referral first."
+      ],
+      "safeLanguage": "None.",
+      "practice": "Do something today that earns a referral — without requesting one.",
+      "check": "Did I ask — or deserve?"
+    },
+    {
+      "day": null,
+      "title": "DAY 38 – Calm Beats Charisma",
+      "signal": "You feel the urge to perform or impress.",
+      "misread": "Amateurs equate likability with influence.",
+      "diagnosis": "Performance can override safety.",
+      "interrupt": [
+        "Lower expression.",
+        "Increase steadiness."
+      ],
+      "safeLanguage": "“There’s no rush.”",
+      "practice": "Dial back your energy once today.",
+      "check": "Was I magnetic — or trustworthy?"
+    },
+    {
+      "day": null,
+      "title": "DAY 39 – Trust Compounds Quietly",
+      "signal": "You do the right thing — and get no reaction.",
+      "misread": "Amateurs think restraint failed.",
+      "diagnosis": "Trust accumulates invisibly.",
+      "interrupt": [
+        "Hold steady.",
+        "Don’t self-correct."
+      ],
+      "safeLanguage": "None.",
+      "practice": "Stick to your process — even without reward.",
+      "check": "Did I confuse silence with failure?"
+    },
+    {
+      "day": null,
+      "title": "DAY 40 – Reputation Is the Real Asset",
+      "signal": "You consider bending a principle “just this once.”",
+      "misread": "Amateurs believe integrity can be paused.",
+      "diagnosis": "Reputation is built in the moments no one sees.",
+      "interrupt": [
+        "Hold your line."
+      ],
+      "safeLanguage": "“That’s not how I work.”",
+      "practice": "Decline one shortcut today.",
+      "check": "Did I protect the asset that actually matters?\nDays 41–50: Advanced Agency & Exit Mastery\nThis section installs the deep trust mechanics of persuasion: exits, reversibility, and clean\ndisengagement — the hidden power levers."
+    },
+    {
+      "day": 41,
+      "title": "The Moment You Remove the Hook",
+      "signal": "You sense they're only still here out of politeness.",
+      "misread": "Amateurs use politeness as permission to keep pushing.",
+      "diagnosis": "Politeness ≠ interest. It can be social captivity.",
+      "interrupt": [
+        "Relieve them of the hook.",
+        "Offer disengagement explicitly."
+      ],
+      "safeLanguage": "“You don’t owe me anything here.”",
+      "practice": "Free someone from politeness today.",
+      "check": "Did I mistake manners for consent?"
+    },
+    {
+      "day": 42,
+      "title": "Freedom Creates Gravity",
+      "signal": "They begin leaning in after pressure drops.",
+      "misread": "Amateurs miss the shift — they’re still talking.",
+      "diagnosis": "Curiosity follows autonomy.",
+      "interrupt": [
+        "Say less.",
+        "Hold still."
+      ],
+      "safeLanguage": "“I’ll follow your lead.”",
+      "practice": "Let the other person set the pace once today.",
+      "check": "Did I let gravity work?"
+    },
+    {
+      "day": 43,
+      "title": "Exits Strengthen Commitment",
+      "signal": "They pause right before a big decision.",
+      "misread": "Amateurs try to force through the moment.",
+      "diagnosis": "Real commitment needs an exit to feel safe.",
+      "interrupt": [
+        "Open the door wider."
+      ],
+      "safeLanguage": "“You can change your mind later.”",
+      "practice": "Make reversibility explicit today.",
+      "check": "Did I earn the “yes” — or trap it?"
+    },
+    {
+      "day": 44,
+      "title": "The Power of Non-Scarcity",
+      "signal": "You want to mention limited spots or time pressure.",
+      "misread": "Amateurs use scarcity to create urgency.",
+      "diagnosis": "Scarcity erodes trust when it’s manipulated.",
+      "interrupt": [
+        "Remove pressure.",
+        "Normalize availability."
+      ],
+      "safeLanguage": "“There will be options.”",
+      "practice": "Avoid all urgency framing today.",
+      "check": "Did I pressure under the guise of information?"
+    },
+    {
+      "day": 45,
+      "title": "Let Them Leave Clean",
+      "signal": "They're ready to end the conversation.",
+      "misread": "Amateurs make one last pitch.",
+      "diagnosis": "Forced closings burn return paths.",
+      "interrupt": [
+        "End warmly.",
+        "No follow-up hooks."
+      ],
+      "safeLanguage": "“I’m glad you came in.”",
+      "practice": "Let someone leave without residual agenda.",
+      "check": "Did I respect their exit?"
+    },
+    {
+      "day": 46,
+      "title": "Notice the Micro-Break",
+      "signal": "Subtle withdrawal: less eye contact, shorter replies.",
+      "misread": "Amateurs push past it.",
+      "diagnosis": "Trust has dipped slightly — repair now or lose it.",
+      "interrupt": [
+        "Name the shift.",
+        "Pause forward motion."
+      ],
+      "safeLanguage": "“Something just changed — did I miss something?”",
+      "practice": "Call out one micro-break today without blame.",
+      "check": "Did I repair early — or ignore the drift?"
+    },
+    {
+      "day": 47,
+      "title": "Repair Is Strength",
+      "signal": "You realize you said something wrong.",
+      "misread": "Amateurs double down or explain intent.",
+      "diagnosis": "Intent doesn’t undo impact.",
+      "interrupt": [
+        "Own it.",
+        "Remove defense."
+      ],
+      "safeLanguage": "“That didn’t come out how I meant. Let me reset.”",
+      "practice": "Make one clean repair today — without explanation.",
+      "check": "Did I protect trust or protect ego?"
+    },
+    {
+      "day": 48,
+      "title": "Don’t Over-Repair",
+      "signal": "You feel the need to keep apologizing.",
+      "misread": "Amateurs soothe to reassure themselves.",
+      "diagnosis": "Over-repair signals insecurity.",
+      "interrupt": [
+        "Repair once.",
+        "Then stop."
+      ],
+      "safeLanguage": "None after the initial repair.",
+      "practice": "Trust one repair to hold today.",
+      "check": "Did I over-fix something that was already mended?"
+    },
+    {
+      "day": 49,
+      "title": "Let Truth Stand After Repair",
+      "signal": "You fear the truth still stings after apologizing.",
+      "misread": "Amateurs soften facts to maintain comfort.",
+      "diagnosis": "Repair creates safety — but truth still matters.",
+      "interrupt": [
+        "Keep the fact intact.",
+        "Let discomfort exist."
+      ],
+      "safeLanguage": "“Even so, that part remains true.”",
+      "practice": "Hold one truth steady after a repair today.",
+      "check": "Did I collapse truth to regain comfort?"
+    },
+    {
+      "day": 50,
+      "title": "Repair Creates Loyalty",
+      "signal": "They re-engage after you made a clean repair.",
+      "misread": "Amateurs move fast, thinking the danger passed.",
+      "diagnosis": "Repair isn’t just recovery — it’s bonding.",
+      "interrupt": [
+        "Slow down.",
+        "Don’t capitalize on goodwill."
+      ],
+      "safeLanguage": "“Thanks for staying with me there.”",
+      "practice": "Watch how someone opens more after you repair well.",
+      "check": "Did I see trust deepen?\nDAYS 51–60 — Power Without Control & Restraint Under\nPressure\nTheme: Influence must never become dominance. These 10 days forge clean power — the\nability to lead without force, guide without control, and hold standards when pressure rises."
+    },
+    {
+      "day": 51,
+      "title": "Control Has a Scent",
+      "signal": "",
+      "misread": "",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 52,
+      "title": "Authority Doesn’t Require Volume",
+      "signal": "",
+      "misread": "",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 53,
+      "title": "Don’t Accept Power That’s Not Yours",
+      "signal": "",
+      "misread": "",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 54,
+      "title": "Influence Isn’t Drag",
+      "signal": "",
+      "misread": "",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 55,
+      "title": "Real Power Is Non-Need",
+      "signal": "",
+      "misread": "",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 56,
+      "title": "Pressure Doesn’t Change You — It Reveals You",
+      "signal": "",
+      "misread": "",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 57,
+      "title": "Don’t Absorb Their Urgency",
+      "signal": "",
+      "misread": "",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 58,
+      "title": "Quotas Aren’t Reality",
+      "signal": "",
+      "misread": "",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 59,
+      "title": "Stress Shrinks Your Language",
+      "signal": "",
+      "misread": "",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 60,
+      "title": "Integrity Is the Line",
+      "signal": "",
+      "misread": "",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 61,
+      "title": "The Nervous System Speaks First",
+      "signal": "They haven’t said anything — but their body already has.\nPosture changes. Shoulders tighten. Breath gets shallow.",
+      "misread": "Amateurs wait for words to confirm what’s already obvious.\nTHE TRUTH\nThe body always moves before the mouth. Language lags sensation.\nTHE SHIFT\nNotice physical cues before you speak. Let their system teach you.\nSAFE LANGUAGE\n“I’m picking up something — want to pause here?”\nPRACTICE\nTrack one nonverbal shift today — and respond before they speak.\nCHECK\nDid I let the body tell the truth before the words tried to hide it?",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 62,
+      "title": "All Hesitation Isn’t Fear",
+      "signal": "They pause, stall, or hedge a little before acting.",
+      "misread": "Amateurs rush in to fix it — assuming hesitation = objection.\nTHE TRUTH\nHesitation has flavors.\nIs it fear? Caution? Integrity? Pressure? Curiosity?\nTHE SHIFT\nAsk: “What kind of hesitation is this?” Don’t solve — identify.\nSAFE LANGUAGE\n“What’s behind that pause — is it tension, or just clarity forming?”\nPRACTICE\nLabel one moment of hesitation today with precision, not assumption.\nCHECK\nDid I respond to the real hesitation — or the surface stall?",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 63,
+      "title": "Hear What’s Not Said",
+      "signal": "They talk easily — but never mention one thing.",
+      "misread": "Amateurs listen only to what’s loud.\nTHE TRUTH\nSilence has direction. Avoided topics are clues.\nTHE SHIFT\nGently name the absence. No pressure. Just awareness.\nSAFE LANGUAGE\n“I notice we haven’t touched ___ yet. Want to?”\nPRACTICE\nName one topic today that’s clearly missing.\nCHECK\nDid I listen around the words?",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 64,
+      "title": "Repetition Is a Flag",
+      "signal": "They keep repeating the same point — even after it’s been addressed.",
+      "misread": "Amateurs think they’re just emphasizing it.\nTHE TRUTH\nRepetition is a signal loop. Something unresolved is still stuck.\nTHE SHIFT\nStop moving forward. Go back to the loop.\nSAFE LANGUAGE\n“You’ve said that a few times. Tell me what’s still there.”\nPRACTICE\nCatch one repetition loop today — and follow it deeper.\nCHECK\nDid I treat the loop as noise — or as a flare?",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 65,
+      "title": "Tone Tells the Truth",
+      "signal": "Their words say one thing. Their tone says another.",
+      "misread": "Amateurs stay literal. They take words at face value.\nTHE TRUTH\nTone reveals the emotional truth. Always follow it.\nTHE SHIFT\nRespond to the energy, not the language.\nSAFE LANGUAGE\n“That sounded heavier than it should — want to stay there?”\nPRACTICE\nAddress one tone mismatch today.\nCHECK\nDid I hear the temperature — or just the transcript?",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 66,
+      "title": "Walk Away Early",
+      "signal": "You sense this isn’t a good fit — but part of you wants to keep trying.",
+      "misread": "Amateurs push harder. “Let’s make it work.”\nTHE TRUTH\nMisfit today becomes resentment tomorrow.\nTHE SHIFT\nRespect the no-fit moment. End clean. Exit early.\nSAFE LANGUAGE\n“This might not be what you’re looking for — and that’s okay.”\nPRACTICE\nEnd one misaligned interaction early today — and breathe.\nCHECK\nDid I choose alignment — or chase closure?",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 67,
+      "title": "Detachment Sharpens Vision",
+      "signal": "Clarity lands — only after you stop trying to control it.",
+      "misread": "Amateurs think detachment means apathy or disengagement.\nTHE TRUTH\nNon-attachment clears the lens. It lets you see.\nTHE SHIFT\nDetach. Watch how the view sharpens.\nSAFE LANGUAGE\n“Either way works. Let’s see what fits best for you.”\nPRACTICE\nNotice how perception changes when you drop the outcome.\nCHECK\nDid I see clearly — or through the fog of need?",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 68,
+      "title": "Don’t Chase Withdrawal",
+      "signal": "They pull away — slow response, less eye contact, polite deflection.",
+      "misread": "Amateurs pursue. “Let me fix this. Let’s bring them back.”\nTHE TRUTH\nChasing confirms threat. It locks in the retreat.\nTHE SHIFT\nHold still. Stabilize your state. Respect the space.\nSAFE LANGUAGE\n“We can pause here — that’s okay.”\nPRACTICE\nLet one withdrawal complete without you following it.\nCHECK\nDid I chase out of fear — or let safety return on its own?",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 69,
+      "title": "Endings Are the Memory",
+      "signal": "The conversation is closing — but there’s no real closure.",
+      "misread": "Amateurs let the ending drift awkwardly or try to “revive” it.\nTHE TRUTH\nHow something ends shapes how it’s remembered.\nTHE SHIFT\nClose cleanly. Leave them with dignity and peace.\nSAFE LANGUAGE\n“Thanks for taking the time — that was worth it either way.”\nPRACTICE\nEnd one interaction today with grace and nothing left unsaid.\nCHECK\nDid I protect the end — or scramble to fix it?",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 70,
+      "title": "Non-Need Is Safety",
+      "signal": "The moment you stop pushing — they relax.",
+      "misread": "Amateurs think performance creates value.\nTHE TRUTH\nThe absence of pressure is the presence of safety.\nTHE SHIFT\nStop performing. Let safety build the bridge.\nSAFE LANGUAGE\n“There’s no expectation here.”\nPRACTICE\nHold one space open today without steering.\nCHECK\nDid I trust gravity?\nDAYS 71–80 — Integration & Permanent Identity Shift\nThis phase is not about technique. It’s about becoming. You’re not “doing persuasion” anymore\n— you’re living as someone who never needs to.",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 71,
+      "title": "The System Runs Quietly",
+      "signal": "You’re in flow. You’re not “using tools” — you’re just present.",
+      "misread": "Amateurs panic when they don’t feel like they’re doing enough.\nTHE TRUTH\nReal influence becomes reflex. Quiet. Steady. Subconscious.\nTHE SHIFT\nTrust what’s been built. It’s no longer a script. It’s who you are.\nSAFE LANGUAGE\nNone needed.\nPRACTICE\nDo not interfere with your flow today. Let the system run.\nCHECK\nDid I try to improve something that was already working?",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 72,
+      "title": "Stop Optimizing What Works",
+      "signal": "Everything’s flowing. You feel a subtle itch to improve it.",
+      "misread": "Amateurs disrupt alignment by over-engineering.\nTHE TRUTH\nTinkering is often fear wearing a “growth” mask.\nTHE SHIFT\nLet the system breathe. Let peace stand.\nSAFE LANGUAGE\n“That already works. Let’s let it.”\nPRACTICE\nResist fixing one thing that doesn’t need fixing today.\nCHECK\nDid I confuse peace with neglect?",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 73,
+      "title": "Invisible Influence Is Real Influence",
+      "signal": "They’re changing — but you didn’t say much.",
+      "misread": "Amateurs crave credit. They point to their “technique.”\nTHE TRUTH\nTrue influence is subtle. Felt. Internalized. Unnamed.\nTHE SHIFT\nLet the transformation be theirs. Stay in the background.\nSAFE LANGUAGE\nNone.\nPRACTICE\nNotice one moment of silent influence today — and don’t mark it.\nCHECK\nDid I stay humble in the presence of impact?",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 74,
+      "title": "Mastery Feels Boring",
+      "signal": "You feel… calm. Still. Underwhelmed.",
+      "misread": "Amateurs think “boring” means they’ve lost their edge.\nTHE TRUTH\nMastery isn’t loud. It’s quiet consistency.\nTHE SHIFT\nDon’t chase stimulation. Stay in the ordinary.\nSAFE LANGUAGE\nNone.\nPRACTICE\nNotice where the power is hiding in the stillness.\nCHECK\nDid I confuse calm with weakness?",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 75,
+      "title": "Outcomes Without Force",
+      "signal": "Things happen. People move. Without pressure.",
+      "misread": "Amateurs think they “got lucky.”\nTHE TRUTH\nThis is what happens when you let the work work.\nTHE SHIFT\nLet the result come to you. Don’t force emergence.\nSAFE LANGUAGE\n“That came together naturally.”\nPRACTICE\nLet one outcome land without pushing it.\nCHECK\nDid I allow — or engineer?",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 76,
+      "title": "Know When Not to Influence",
+      "signal": "You feel you could steer the outcome — but something says not to.",
+      "misread": "Amateurs assume ability equals permission.\nTHE TRUTH\nRestraint is the highest form of power.\nTHE SHIFT\nLet it pass. Step back. Protect innocence.\nSAFE LANGUAGE\n“This one’s not mine to move.”\nPRACTICE\nChoose not to influence something today — on purpose.\nCHECK\nDid I respect the boundary?",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 77,
+      "title": "Leverage Requires Restraint",
+      "signal": "You feel power in the moment. Influence is available.",
+      "misread": "Amateurs use leverage reflexively. “Because I can.”\nTHE TRUTH\nUnchecked leverage always turns into quiet coercion.\nTHE SHIFT\nBack off. Reduce imbalance. Center consent.\nSAFE LANGUAGE\n“I want this to feel even on both sides.”\nPRACTICE\nName and release one advantage today.\nCHECK\nDid I prioritize balance over outcome?",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 78,
+      "title": "Transparency Is Protection",
+      "signal": "You’re aware of something they’re not — and could withhold it.",
+      "misread": "Amateurs protect advantage under the banner of efficiency.\nTHE TRUTH\nHidden knowledge poisons trust — even when undiscovered.\nTHE SHIFT\nReveal what’s yours to reveal. Trust truth more than control.\nSAFE LANGUAGE\n“There’s something you should know here.”\nPRACTICE\nDisclose one subtle edge today — even if it costs you.\nCHECK\nDid I trust truth to protect both of us?",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 79,
+      "title": "Your Line Is Internal",
+      "signal": "You feel uneasy — but technically, you could still justify it.",
+      "misread": "Amateurs rely on rules, policies, and optics.\nTHE TRUTH\nYour ethical line lives inside you. Not in a handbook.\nTHE SHIFT\nIf it crosses your gut — it’s too far.\nSAFE LANGUAGE\n“I’m not okay with that.”\nPRACTICE\nSay no to one subtle compromise today — just because it’s wrong for you.\nCHECK\nDid I listen to my conscience or my convenience?",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 80,
+      "title": "Identity Is the System",
+      "signal": "You feel a shift in who you are — not what you do.",
+      "misread": "Amateurs keep persuasion as a skill in their toolbelt.\nTHE TRUTH\nThis isn’t about what you do. It’s about who you’ve become.\nTHE SHIFT\nLet your actions match your future self — without needing technique.\nSAFE LANGUAGE\n“This is who I am.”\nPRACTICE\nMake one choice today based on identity, not outcome.\nCHECK\nDid my behavior reinforce my character?",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 81,
+      "title": "Success Is the Real Test",
+      "signal": "You’re winning. People follow. Results show up.",
+      "misread": "Amateurs loosen their discipline when they’re ahead.\nTHE TRUTH\nSuccess tempts drift more than failure does.\nTHE SHIFT\nRecommit to restraint. The rules don’t change when you’re winning.\nSAFE LANGUAGE\n“Success doesn’t change how I operate.”\nPRACTICE\nHold a standard today — especially when you could coast.\nCHECK\nDid winning make me sloppy?",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 82,
+      "title": "Authority Amplifies Consequence",
+      "signal": "People agree faster. Defer more. Wait for your lead.",
+      "misread": "Amateurs enjoy compliance and forget weight.\nTHE TRUTH\nAuthority multiplies the ethical weight of your words.\nTHE SHIFT\nSlow decisions. Return power. Disarm blind agreement.\nSAFE LANGUAGE\n“Don’t agree just because I said it.”\nPRACTICE\nActively disrupt one deferential response today.\nCHECK\nDid I protect them from me?",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 83,
+      "title": "Fatigue Shows the Cracks",
+      "signal": "You’re tired. Your margin’s thinner. Patience drops.",
+      "misread": "Amateurs justify shortcuts with exhaustion.\nTHE TRUTH\nFatigue doesn’t create flaws — it reveals them.\nTHE SHIFT\nPause instead of pushing. Recovery is influence protection.\nSAFE LANGUAGE\n“Let’s revisit this when I’m sharper.”\nPRACTICE\nDelay or reschedule one pressured moment today.\nCHECK\nDid I let tiredness erode my ethics?",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 84,
+      "title": "Familiarity Hides Drift",
+      "signal": "You’ve done this before. You think you know how it’ll go.",
+      "misread": "Amateurs lean on memory instead of presence.\nTHE TRUTH\nAssumption replaces awareness. That’s when mistakes happen.\nTHE SHIFT\nSee with new eyes — even when you’ve seen it a hundred times.\nSAFE LANGUAGE\n“Let me double-check what’s real here.”\nPRACTICE\nTreat one routine moment today like it’s brand new.\nCHECK\nDid I protect presence — or operate on autopilot?",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 85,
+      "title": "Don’t Teach What You Don’t Live",
+      "signal": "Others copy you. Ask how you do it. Quote your words.",
+      "misread": "Amateurs instruct before they embody.\nTHE TRUTH\nThey learn more from your restraint than your rhetoric.\nTHE SHIFT\nModel it silently. If it’s not real in you, don’t pass it on.\nSAFE LANGUAGE\nNone.\nPRACTICE\nDemonstrate the standard today — without needing to explain it.\nCHECK\nWas I congruent?",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 86,
+      "title": "The System Must Outlive You",
+      "signal": "You wonder what happens when you're not in the room.",
+      "misread": "Amateurs rely on charisma to hold the culture.\nTHE TRUTH\nGreat systems don’t need heroes. They need clarity.\nTHE SHIFT\nCodify your principles. Transfer power. Make it repeatable.\nSAFE LANGUAGE\n“This works even without me.”\nPRACTICE\nWrite down one core principle today — for someone else to live.\nCHECK\nIs what I’ve built transferable?",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 87,
+      "title": "Correct Without Shame",
+      "signal": "Someone gets it wrong. Crosses a line. Breaks the standard.",
+      "misread": "Amateurs correct with judgment — and kill trust.\nTHE TRUTH\nShame stops learning. Dignity sustains it.\nTHE SHIFT\nName the misstep. Remove the sting.\nSAFE LANGUAGE\n“That missed the mark — here’s how to realign.”\nPRACTICE\nCorrect one thing today with full respect.\nCHECK\nDid I build trust while I brought correction?",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 88,
+      "title": "Drift Starts Small",
+      "signal": "You can’t name what’s off — but something is.",
+      "misread": "Amateurs wait for collapse before correcting.\nTHE TRUTH\nSmall deviations ignored today become big breakdowns tomorrow.\nTHE SHIFT\nRealign early. The system is whispering.\nSAFE LANGUAGE\n“Let’s reset before this grows.”\nPRACTICE\nCatch one early drift today — and address it.\nCHECK\nDid I protect the future by correcting the now?",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 89,
+      "title": "Power Must Stay Optional",
+      "signal": "You could move this room. Sway this moment.",
+      "misread": "Amateurs use power just because they can.\nTHE TRUTH\nReal power doesn’t always need to be used.\nTHE SHIFT\nHold it. Respect it. Choose not to wield it.\nSAFE LANGUAGE\n“I’m okay not influencing this.”\nPRACTICE\nLet one moment unfold untouched today — by choice.\nCHECK\nDid I choose restraint when power was available?",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    },
+    {
+      "day": 90,
+      "title": "The Final Seal",
+      "signal": "There’s nothing left to correct. No impulse to steer.",
+      "misread": "Amateurs think that means it’s over.\nTHE TRUTH\nIt means the system lives inside you now.\nTHE SHIFT\nLive this way — even when no one’s watching.\nSAFE LANGUAGE\nNone.\nPRACTICE\nLet today be led only by presence, clarity, and restraint.\nCHECK\nAm I this person now — even in silence?\n💠 FINAL NOTE\nYou no longer need a tool.\nYou are the tool.\nThe presence.\nThe signal.\nThe restraint.\nThe clean power.\nThis is not persuasion.\nIt’s character.",
+      "diagnosis": "",
+      "interrupt": [],
+      "safeLanguage": "",
+      "practice": "",
+      "check": ""
+    }
+  ]
+}
