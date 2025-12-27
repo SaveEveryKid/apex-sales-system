@@ -1,0 +1,1112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Apex Sales System</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Montserrat:wght@500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --obsidian:#050505;
+      --text:#EDEDED;
+      --muted:rgba(237,237,237,.62);
+      --muted2:rgba(237,237,237,.45);
+      --gold:#D4AF37;
+      --gold15:rgba(212,175,55,.15);
+      --gold30:rgba(212,175,55,.30);
+      --panel:rgba(255,255,255,.04);
+      --panel2:rgba(255,255,255,.03);
+      --border:rgba(212,175,55,.15);
+      --blur:12px;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box}
+    html,body{height:100%}
+
+    body{
+      font-family:'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro', sans-serif;
+      background:var(--obsidian);
+      color:var(--text);
+      line-height:1.7;
+      font-size:18px;
+      overflow-x:hidden;
+    }
+
+    /* Atmospheric depth: animated mesh + grain */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:-20%;
+      z-index:-2;
+      background:
+        radial-gradient(600px 600px at 10% 20%, rgba(212,175,55,.06), transparent 55%),
+        radial-gradient(700px 700px at 85% 25%, rgba(90,140,190,.05), transparent 60%),
+        radial-gradient(900px 900px at 50% 90%, rgba(255,255,255,.03), transparent 65%),
+        radial-gradient(800px 800px at 30% 70%, rgba(120,120,120,.03), transparent 60%);
+      filter:saturate(110%);
+      animation:meshDrift 18s ease-in-out infinite alternate;
+      transform:translateZ(0);
+    }
+
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      pointer-events:none;
+      background-image:
+        repeating-linear-gradient(0deg, rgba(255,255,255,.03) 0, rgba(255,255,255,.03) 1px, transparent 1px, transparent 3px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,.02) 0, rgba(255,255,255,.02) 1px, transparent 1px, transparent 4px);
+      opacity:.08;
+      mix-blend-mode:overlay;
+      animation:grainMove 10s steps(10) infinite;
+    }
+
+    @keyframes meshDrift{
+      0%{transform:translate3d(-1%, -1%, 0) scale(1.02)}
+      100%{transform:translate3d(1%, 1%, 0) scale(1.06)}
+    }
+    @keyframes grainMove{
+      0%{transform:translate3d(0,0,0)}
+      20%{transform:translate3d(-2%,1%,0)}
+      40%{transform:translate3d(1%,-1%,0)}
+      60%{transform:translate3d(2%,2%,0)}
+      80%{transform:translate3d(-1%,2%,0)}
+      100%{transform:translate3d(0,0,0)}
+    }
+
+    /* Typography */
+    h1,h2,h3,.logo,.card-title{
+      font-family:'Montserrat','Michroma',system-ui,sans-serif;
+      letter-spacing:2px;
+    }
+    h1{
+      font-size:44px;
+      font-weight:700;
+      text-transform:uppercase;
+      line-height:1.1;
+    }
+    h2{
+      font-size:30px;
+      font-weight:600;
+      text-transform:uppercase;
+      line-height:1.2;
+      margin-bottom:1.25em;
+    }
+    h3{
+      font-size:20px;
+      font-weight:600;
+      text-transform:uppercase;
+      margin-bottom:1em;
+    }
+
+    p{margin-bottom:1.5em}
+
+    .meta,
+    .hero-subtitle,
+    .hero-tagline,
+    .card-description,
+    .card-status,
+    .nav-links a,
+    .content-block h3{
+      font-family:'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      letter-spacing:.02em;
+    }
+
+    .meta{font-size:13px;color:var(--muted2)}
+    .hero-subtitle{font-size:15px;color:var(--muted)}
+    .hero-tagline{font-size:13px;color:var(--muted2);font-style:normal}
+
+    /* Layout */
+    .container{max-width:1200px;margin:0 auto;padding:0 44px}
+    /* Reader layout for chapter-based systems (Deep Persuasion / Appointment / Final Authority) */
+    .two-col{
+      display:grid;
+      grid-template-columns: 340px minmax(0, 1fr);
+      gap:48px;
+      align-items:start;
+      padding-bottom:80px;
+    }
+    .toc{
+      position:sticky;
+      top:110px;
+      align-self:start;
+    }
+    .list{
+      list-style:none;
+      margin-top:14px;
+      border:1px solid var(--border);
+      background:var(--panel2);
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+      padding:14px 14px;
+      max-height: calc(100vh - 220px);
+      overflow:auto;
+    }
+    .list li{
+      padding:10px 10px;
+      border-left:2px solid transparent;
+      color:rgba(237,237,237,.78);
+      font-family:'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size:13px;
+      letter-spacing:.02em;
+      cursor:pointer;
+      transition: border-color .18s ease, background .18s ease, color .18s ease;
+    }
+    .list li:hover{
+      background:rgba(212,175,55,.05);
+      color:rgba(237,237,237,.92);
+      border-left-color: rgba(212,175,55,.35);
+    }
+    .list li.active{
+      background:rgba(212,175,55,.07);
+      color:rgba(237,237,237,.96);
+      border-left-color: rgba(212,175,55,.70);
+    }
+    .panel{
+      background:rgba(255,255,255,.045);
+      border:1px solid var(--border);
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+      box-shadow: 0 0 0 1px rgba(212,175,55,.05), 0 22px 80px rgba(0,0,0,.55);
+      padding:34px 34px 40px;
+      min-height: 520px;
+      max-height: calc(100vh - 180px);
+      overflow:auto;
+    }
+    .panel h2{
+      margin:0 0 14px 0;
+      font-size:26px;
+      letter-spacing:.01em;
+    }
+    .panel .meta{margin-top:8px}
+
+    @media (max-width: 980px){
+      .two-col{grid-template-columns:1fr; gap:22px;}
+      .toc{position:relative; top:auto;}
+      .list{max-height:none;}
+    }
+
+    .content-narrow{max-width:760px;margin:0 auto}
+    section{padding:110px 0}
+
+    /* Header */
+    header{
+      background:rgba(5,5,5,.72);
+      backdrop-filter: blur(10px);
+      position:sticky;
+      top:0;
+      z-index:1000;
+      border-bottom:1px solid rgba(212,175,55,.10);
+    }
+    nav{display:flex;justify-content:space-between;align-items:center;padding:28px 44px}
+    .logo{font-family:'Michroma', 'Montserrat', system-ui, sans-serif;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(237,237,237,.92)}
+    .nav-links{display:flex;gap:32px;list-style:none}
+    .nav-links a{color:var(--muted2);text-decoration:none;font-size:12px;transition:color 200ms ease}
+    .nav-links a:hover{color:rgba(237,237,237,.92)}
+    .nav-links a.active{color:rgba(237,237,237,.95)}
+
+    /* Hero */
+    .hero{text-align:center;padding:150px 0 110px}
+    .hero-title{margin-bottom:18px}
+    .hero-divider{width:180px;height:1px;background:rgba(212,175,55,.35);margin:28px auto}
+    .hero-subtitle{font-weight:500}
+    .hero-tagline{margin-top:14px}
+
+    /* Cards */
+    .systems-grid{display:grid;gap:28px;margin-top:60px}
+    .system-card{
+      position:relative;
+      background:var(--panel);
+      border:1px solid var(--border);
+      padding:46px;
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+      box-shadow: 0 0 0 1px rgba(255,255,255,.03) inset;
+      transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+    }
+    .system-card:hover{
+      border-color: rgba(212,175,55,.35);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,.04) inset,
+        0 0 22px rgba(212,175,55,.10),
+        0 0 42px rgba(212,175,55,.06);
+      transform: translateY(-2px);
+    }
+    .card-header{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+    .card-icon{
+      width:34px;height:34px;display:grid;place-items:center;
+      color:rgba(237,237,237,.86);
+      transition: filter 180ms ease;
+    }
+    .system-card:hover .card-icon{
+      filter: drop-shadow(0 0 10px rgba(212,175,55,.22));
+    }
+    .icon{width:26px;height:26px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+    .card-title{font-size:16px;font-weight:700}
+    .card-description{color:var(--muted);font-size:13px;margin-bottom:10px}
+    .card-status{color:var(--muted2);font-size:12px}
+
+    /* Buttons */
+    .btn{
+      display:inline-block;
+      padding:14px 26px;
+      background:transparent;
+      border:1px solid rgba(212,175,55,.22);
+      color:rgba(237,237,237,.92);
+      text-decoration:none;
+      font-size:13px;
+      font-family:'Roboto Mono', ui-monospace, monospace;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      transition: all 180ms ease;
+      cursor:pointer;
+      border-radius:0;
+    }
+    .btn:hover:not(:disabled){
+      border-color: rgba(212,175,55,.35);
+      box-shadow: 0 0 20px rgba(212,175,55,.10);
+    }
+    .btn:disabled{opacity:.35;cursor:not-allowed}
+    .btn-primary{
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #050505;
+    }
+    .btn-primary:hover:not(:disabled){
+      box-shadow: 0 0 26px rgba(212,175,55,.18);
+      transform: translateY(-1px);
+    }
+
+    /* Daily layout */
+    .daily-layout{display:grid;grid-template-columns:250px 1fr;gap:80px;padding:60px 44px}
+    .sidebar{position:sticky;top:112px;height:fit-content}
+    .day-counter{font-family:'Montserrat','Michroma',system-ui,sans-serif;letter-spacing:2px;font-size:44px;font-weight:700;margin-bottom:18px;color:rgba(212,175,55,.92)}
+    .progress-ring{width:120px;height:120px;margin-bottom:26px}
+    .day-list{list-style:none}
+    .day-list-item{padding:8px 0;color:var(--muted2);font-size:12px}
+    .day-list-item:hover{color:rgba(237,237,237,.9)}
+    .day-list-item.completed{color:rgba(212,175,55,.88)}
+    .day-list-item.current{color:rgba(237,237,237,.95);font-weight:700}
+
+    .daily-content{max-width:760px}
+    .content-block{margin-bottom:42px}
+    .content-block h3{color:rgba(212,175,55,.9);font-size:12px;text-transform:uppercase;letter-spacing:.12em;margin-bottom:14px}
+    .content-block ul{margin-left:22px;margin-bottom:1.2em}
+    .content-block li{margin-bottom:8px}
+    .quote{font-style:normal;color:var(--muted);padding-left:22px;border-left:2px solid rgba(212,175,55,.45);margin:22px 0}
+    .nav-controls{display:flex;justify-content:space-between;align-items:center;margin-top:70px;padding-top:32px;border-top:1px solid rgba(212,175,55,.10)}
+    .checkbox-label{display:flex;align-items:center;gap:12px;cursor:pointer;font-size:14px;color:rgba(237,237,237,.86)}
+    .checkbox-label input{width:18px;height:18px;cursor:pointer;accent-color:var(--gold)}
+
+    /* Modal */
+    .modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:2000;align-items:center;justify-content:center;padding:24px}
+    .modal.active{display:flex}
+    .modal-content{
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(212,175,55,.22);
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+      max-width:640px;
+      padding:56px;
+      text-align:center;
+      box-shadow: 0 0 0 1px rgba(255,255,255,.03) inset, 0 0 40px rgba(212,175,55,.08);
+    }
+    .modal h2{color:rgba(212,175,55,.92);margin-bottom:18px}
+    .modal-actions{display:flex;gap:14px;justify-content:center;margin-top:32px;flex-wrap:wrap}
+
+    /* Footer */
+    footer{border-top:1px solid rgba(212,175,55,.10);padding:54px 44px;text-align:center;font-size:12px;color:var(--muted2);font-family:'Roboto Mono',ui-monospace,monospace;letter-spacing:.05em;text-transform:uppercase}
+
+    .hidden{display:none}
+    .fade-in{animation:fadeIn 320ms ease-in}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+    @media (max-width: 900px){
+      .daily-layout{grid-template-columns:1fr;gap:36px}
+      .sidebar{position:relative;top:auto}
+      nav{padding:22px 22px}
+      .container{padding:0 22px}
+      .daily-layout{padding:40px 22px}
+    }
+</style>
+</head>
+<body>
+
+  <!-- Icon sprite -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden">
+    <symbol id="icon-peak" viewBox="0 0 24 24">
+      <path d="M3 20L12 4l9 16H3z"/>
+      <path d="M12 10l-2.2 4h4.4L12 10z"/>
+    </symbol>
+
+    <symbol id="icon-neural" viewBox="0 0 24 24">
+      <path d="M6 6h12"/>
+      <path d="M6 18h12"/>
+      <path d="M8 6v12"/>
+      <path d="M16 6v12"/>
+      <path d="M8 12h8"/>
+      <circle cx="8" cy="6" r="1.3"/>
+      <circle cx="16" cy="6" r="1.3"/>
+      <circle cx="8" cy="18" r="1.3"/>
+      <circle cx="16" cy="18" r="1.3"/>
+      <circle cx="12" cy="12" r="1.3"/>
+    </symbol>
+
+    <symbol id="icon-gate" viewBox="0 0 24 24">
+      <path d="M5 20V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v14"/>
+      <path d="M9 20V8"/>
+      <path d="M15 20V8"/>
+      <path d="M5 10h14"/>
+    </symbol>
+
+    <symbol id="icon-shield" viewBox="0 0 24 24">
+      <path d="M12 3l8 4v6c0 5-3.4 8.6-8 9-4.6-.4-8-4-8-9V7l8-4z"/>
+      <path d="M9 12h6"/>
+      <path d="M12 9v6"/>
+    </symbol>
+
+    <symbol id="icon-lock" viewBox="0 0 24 24">
+      <path d="M7 11V8a5 5 0 0 1 10 0v3"/>
+      <path d="M6 11h12v10H6z"/>
+      <path d="M12 15v3"/>
+    </symbol>
+    <symbol id="icon-radar" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="M12 12l5-3"/>
+      <path d="M12 3v2"/>
+      <path d="M21 12h-2"/>
+      <path d="M12 21v-2"/>
+      <path d="M3 12h2"/>
+    </symbol>
+
+  </svg>
+
+<header>
+  <nav>
+    <div class="logo">The Apex Sales System</div>
+    <ul class="nav-links">
+      <li><a href="#home" class="active nav-link" data-page="home">Home</a></li>
+      <li><a href="#apex" class="nav-link" data-page="apex">Apex Training</a></li>
+        <li><a href="#demand" class="nav-link" data-page="demand">Apex Demand</a></li>
+      <li><a href="#persuasion" class="nav-link" data-page="persuasion">Deep Persuasion</a></li>
+      <li><a href="#appointment" class="nav-link" data-page="appointment">Appointment</a></li>
+      <li><a href="#authority" class="nav-link" data-page="authority">Final Authority</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="app">
+  <!-- HOME -->
+  <div id="page-home" class="page">
+    <section class="hero">
+      <div class="container">
+        <h1>THE APEX SALES SYSTEM</h1>
+        <div class="hero-divider"></div>
+        <p class="hero-subtitle">Human Decision Architecture</p>
+        <p class="hero-tagline">Train perception. Preserve agency. Apply authority only when earned.</p>
+
+        <div class="systems-grid content-narrow">
+          <div class="system-card">
+            <div class="card-header"><div class="card-icon"><svg class="icon"><use href="#icon-peak"></use></svg></div><div class="card-title">APEX TRAINING</div></div>
+            
+
+          <div class="system-card">
+            <div class="card-header"><div class="card-icon"><svg class="icon"><use href="#icon-radar"></use></svg></div><div class="card-title">APEX DEMAND</div></div>
+            <p class="card-description">Personal demand generation playbook.</p>
+            <p class="card-status">Open to everyone</p>
+            <button class="btn btn-primary" data-jump="demand">Enter Apex Demand</button>
+          </div>
+<p class="card-description">90-day devotional for the entire team.</p>
+            <p class="card-status">Open to everyone</p>
+            <button class="btn btn-primary" data-jump="apex">Enter Apex</button>
+          </div>
+
+          <div class="system-card">
+            <div class="card-header"><div class="card-icon"><svg class="icon"><use href="#icon-neural"></use></svg></div><div class="card-title">DEEP PERSUASION</div></div>
+            <p class="card-description">Decision architecture for sales teams.</p>
+            <p class="card-status">Open to everyone</p>
+            <button class="btn btn-primary" data-jump="persuasion">Enter Deep Persuasion</button>
+          </div>
+
+          <div class="system-card">
+            <div class="card-header"><div class="card-icon"><svg class="icon"><use href="#icon-gate"></use></svg></div><div class="card-title">THE APPOINTMENT IS THE DECISION</div></div>
+            <p class="card-description">Internet-manager playbook for appointment conversion.</p>
+            <p class="card-status">Open to everyone</p>
+            <button class="btn btn-primary" data-jump="appointment">Enter Appointment</button>
+          </div>
+
+          <div class="system-card">
+            <div class="card-header"><div class="card-icon"><svg class="icon"><use href="#icon-shield"></use></svg></div><div class="card-title">FINAL AUTHORITY</div></div>
+            <p class="card-description">Managers-only indecision termination.</p>
+            <p class="card-status">Managers Only — Password required</p>
+            <button class="btn btn-primary" data-jump="authority">Enter Final Authority</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section style="padding-top:70px;">
+      <div class="container">
+        <div class="content-narrow">
+          <h2 style="text-align:center;margin-bottom:22px;">Manager Brief (60 seconds)</h2>
+          <div class="panel" style="margin-top:28px;">
+  <h2 style="margin-top:0;">THE APEX SYSTEM <span class="meta">(60-SECOND BRIEF)</span></h2>
+  <h3>What It Is</h3>
+  <p>APEX is a full sales operating system that stabilizes demand, improves decision quality, and reduces pressure across the dealership.</p>
+  <p><strong>It doesn’t replace your process.</strong> It makes your process work with less friction.</p>
+
+  <h3>The Core Problem It Solves</h3>
+  <p>Most sales issues aren’t skill issues. They’re pressure issues:</p>
+  <ul>
+    <li>Salespeople depend entirely on traffic</li>
+    <li>Pressure transfers to customers</li>
+    <li>Resistance increases</li>
+    <li>Decisions stall or blow up</li>
+  </ul>
+  <p><strong>APEX removes pressure upstream, so decisions resolve downstream.</strong></p>
+
+  <h3>How It Works (Very Simply)</h3>
+  <ol>
+    <li><strong>Upstream: Personal Demand</strong> — Salespeople generate familiarity in their market → more name-requested appointments → less dependence on ups → calmer floor.</li>
+    <li><strong>Midstream: Decision-Safe Selling</strong> — Preserve agency instead of forcing urgency → less resistance → faster, cleaner closes.</li>
+    <li><strong>Structure: The Appointment Is the Decision</strong> — Appointments become commitment points → higher show rates → less wasted desk time.</li>
+    <li><strong>Downstream: Final Authority</strong> — Managers resolve decisions instead of forcing them → less friction → more leverage → better customer experience.</li>
+  </ol>
+
+  <h3>What You Get (Operationally)</h3>
+  <ul>
+    <li>Higher show rates</li>
+    <li>Shorter decision cycles</li>
+    <li>Fewer walkouts</li>
+    <li>More referrals</li>
+    <li>Less burnout</li>
+    <li>Better retention</li>
+    <li>More predictable performance</li>
+  </ul>
+  <p><strong>All without:</strong> changing CRM, changing pay plans, cutting ads, rewriting your process.</p>
+
+  <h3>How to Judge It (No Faith Required)</h3>
+  <p><strong>First 90 Days:</strong> salespeople calmer, follow-up less aggressive, customers asking for salespeople by name.</p>
+  <p><strong>6–12 Months:</strong> more inbound to individuals, fewer grinders, better desk interactions, lower turnover.</p>
+  <p><strong>APEX compounds. It doesn’t spike.</strong></p>
+
+  <h3>Bottom Line</h3>
+  <p><strong>APEX doesn’t push harder at the close.</strong> It fixes the environment that creates resistance in the first place.</p>
+  <p>Calmer systems sell more over time.</p>
+</div>
+        </div>
+      </div>
+    </section>
+
+
+    <section>
+      <div class="container">
+        <div class="content-narrow">
+          <blockquote>
+            <p><strong>This is not a sales course.</strong></p>
+            <p>This is a training environment designed to rewire how your team perceives, decides, and leads.</p>
+          </blockquote>
+          <p class="meta" id="load-status">Loading content…</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- APEX -->
+  <div id="page-apex" class="page hidden">
+    <section class="hero" style="padding:110px 0 60px;">
+      <div class="container">
+        <div style="text-align:center;">
+          <div style="font-size:48px;margin-bottom:12px;"><svg class="icon" style="width:40px;height:40px"><use href="#icon-peak"></use></svg></div>
+          <h1>APEX TRAINING</h1>
+          <div class="hero-divider"></div>
+          <p class="hero-subtitle">90-Day Devotional</p>
+          <p class="hero-tagline">One day. One rep. Apply it in the real world.</p>
+
+          <div class="toolbar" style="justify-content:center;">
+            <button class="btn btn-primary" id="start-day-1">Begin Day 1</button>
+            <span class="pill" id="apex-count">Days loaded: 0</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top:0;">
+      <div class="container">
+        <div class="content-narrow">
+          <h2>How to use this</h2>
+          <ul style="margin-left:22px;">
+            <li>Do one day per workday. Don’t binge.</li>
+            <li>Mark complete after you apply it live.</li>
+            <li>Use search to find a day later.</li>
+          </ul>
+          <p class="meta">Tip: If this page says “Days loaded: 0”, your JSON isn’t being found.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- DAILY -->
+  <div id="page-daily" class="page hidden">
+    <div class="daily-layout">
+      <div class="sidebar">
+        <div class="day-counter" id="current-day-display">DAY 1</div>
+        <svg class="progress-ring" viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="54" fill="none" stroke="rgba(155,155,155,0.12)" stroke-width="4"/>
+          <circle id="progress-circle" cx="60" cy="60" r="54" fill="none" stroke="#5B7C99" stroke-width="4"
+                  stroke-dasharray="339.292" stroke-dashoffset="339.292" transform="rotate(-90 60 60)"/>
+        </svg>
+        <input class="input" id="day-search" placeholder="Search days…" />
+        <ul class="day-list" id="day-list"></ul>
+      </div>
+
+      <div class="daily-content" id="daily-content"></div>
+    </div>
+  </div>
+
+  <!-- DEEP PERSUASION -->
+  
+  <!-- APEX DEMAND -->
+  <div id="page-demand" class="page hidden">
+    <section class="hero" style="padding:110px 0 60px;">
+      <div class="container" style="text-align:center;">
+        <div style="font-size:48px;margin-bottom:12px;"><svg class="icon" style="width:40px;height:40px"><use href="#icon-radar"></use></svg></div>
+        <h1>APEX DEMAND</h1>
+        <div class="hero-divider"></div>
+        <p class="hero-subtitle">Personal Demand System</p>
+        <p class="hero-tagline">Generate familiarity. Reduce dependence on ups.</p>
+      </div>
+    </section>
+    <section style="padding-top:0;">
+      <div class="container">
+        <div class="two-col">
+          <div class="toc">
+            <input class="input" id="dmd-search" placeholder="Search pages…" />
+            <ul class="list" id="dmd-list"></ul>
+          </div>
+          <div class="panel" id="dmd-panel">
+            <p class="meta">Select a page.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="page-persuasion" class="page hidden">
+    <section class="hero" style="padding:110px 0 60px;">
+      <div class="container" style="text-align:center;">
+        <div style="font-size:48px;margin-bottom:12px;"><svg class="icon" style="width:40px;height:40px"><use href="#icon-neural"></use></svg></div>
+        <h1>DEEP PERSUASION</h1>
+        <div class="hero-divider"></div>
+        <p class="hero-subtitle">Sales Team System</p>
+        <p class="hero-tagline">Guide decisions. Never override them.</p>
+      </div>
+    </section>
+    <section style="padding-top:0;">
+      <div class="container">
+        <div class="two-col">
+          <div class="toc">
+            <input class="input" id="pers-search" placeholder="Search chapters…" />
+            <ul class="list" id="pers-list"></ul>
+          </div>
+          <div class="panel" id="pers-panel">
+            <p class="meta">Select a chapter.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- APPOINTMENT -->
+  <div id="page-appointment" class="page hidden">
+    <section class="hero" style="padding:110px 0 60px;">
+      <div class="container" style="text-align:center;">
+        <div style="font-size:48px;margin-bottom:12px;"><svg class="icon" style="width:40px;height:40px"><use href="#icon-gate"></use></svg></div>
+        <h1>THE APPOINTMENT IS THE DECISION</h1>
+        <div class="hero-divider"></div>
+        <p class="hero-subtitle">Internet Manager Playbook</p>
+        <p class="hero-tagline">Open the gates in order. Nothing else works.</p>
+      </div>
+    </section>
+    <section style="padding-top:0;">
+      <div class="container">
+        <div class="two-col">
+          <div class="toc">
+            <input class="input" id="appt-search" placeholder="Search chapters…" />
+            <ul class="list" id="appt-list"></ul>
+          </div>
+          <div class="panel" id="appt-panel">
+            <p class="meta">Select a chapter.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- FINAL AUTHORITY -->
+  <div id="page-authority" class="page hidden">
+    <section class="hero" style="padding:110px 0 60px;">
+      <div class="container" style="text-align:center;">
+        <div style="font-size:48px;margin-bottom:12px;"><svg class="icon" style="width:40px;height:40px"><use href="#icon-shield"></use></svg></div>
+        <h1>FINAL AUTHORITY</h1>
+        <div class="hero-divider"></div>
+        <p class="hero-subtitle">Managers Training</p>
+        <p class="hero-tagline">Force is ethical only when applied last.</p>
+        <p class="meta warn">Managers Only — password required</p>
+      </div>
+    </section>
+    <section style="padding-top:0;">
+      <div class="container">
+        <div class="two-col">
+          <div class="toc">
+            <input class="input" id="auth-search" placeholder="Search chapters…" />
+            <ul class="list" id="auth-list"></ul>
+          </div>
+          <div class="panel" id="auth-panel">
+            <div class="panel" style="margin-top:28px;">
+  <h2 style="margin-top:0;">THE APEX SYSTEM <span class="meta">(60-SECOND BRIEF)</span></h2>
+  <h3>What It Is</h3>
+  <p>APEX is a full sales operating system that stabilizes demand, improves decision quality, and reduces pressure across the dealership.</p>
+  <p><strong>It doesn’t replace your process.</strong> It makes your process work with less friction.</p>
+
+  <h3>The Core Problem It Solves</h3>
+  <p>Most sales issues aren’t skill issues. They’re pressure issues:</p>
+  <ul>
+    <li>Salespeople depend entirely on traffic</li>
+    <li>Pressure transfers to customers</li>
+    <li>Resistance increases</li>
+    <li>Decisions stall or blow up</li>
+  </ul>
+  <p><strong>APEX removes pressure upstream, so decisions resolve downstream.</strong></p>
+
+  <h3>How It Works (Very Simply)</h3>
+  <ol>
+    <li><strong>Upstream: Personal Demand</strong> — Salespeople generate familiarity in their market → more name-requested appointments → less dependence on ups → calmer floor.</li>
+    <li><strong>Midstream: Decision-Safe Selling</strong> — Preserve agency instead of forcing urgency → less resistance → faster, cleaner closes.</li>
+    <li><strong>Structure: The Appointment Is the Decision</strong> — Appointments become commitment points → higher show rates → less wasted desk time.</li>
+    <li><strong>Downstream: Final Authority</strong> — Managers resolve decisions instead of forcing them → less friction → more leverage → better customer experience.</li>
+  </ol>
+
+  <h3>What You Get (Operationally)</h3>
+  <ul>
+    <li>Higher show rates</li>
+    <li>Shorter decision cycles</li>
+    <li>Fewer walkouts</li>
+    <li>More referrals</li>
+    <li>Less burnout</li>
+    <li>Better retention</li>
+    <li>More predictable performance</li>
+  </ul>
+  <p><strong>All without:</strong> changing CRM, changing pay plans, cutting ads, rewriting your process.</p>
+
+  <h3>How to Judge It (No Faith Required)</h3>
+  <p><strong>First 90 Days:</strong> salespeople calmer, follow-up less aggressive, customers asking for salespeople by name.</p>
+  <p><strong>6–12 Months:</strong> more inbound to individuals, fewer grinders, better desk interactions, lower turnover.</p>
+  <p><strong>APEX compounds. It doesn’t spike.</strong></p>
+
+  <h3>Bottom Line</h3>
+  <p><strong>APEX doesn’t push harder at the close.</strong> It fixes the environment that creates resistance in the first place.</p>
+  <p>Calmer systems sell more over time.</p>
+</div>
+            <div style="margin-top:26px"><p class="meta">Select a chapter from the left to begin.</p></div>
+          </div>
+        </div>
+      </div>
+    </section
+  </div>
+</main>
+
+<div class="modal" id="manager-modal">
+  <div class="modal-content">
+    <div style="font-size:44px;margin-bottom:10px;"><svg class="icon" style="width:40px;height:40px"><use href="#icon-lock"></use></svg></div>
+    <h3 style="margin-bottom:8px;">Managers Only</h3>
+    <p class="meta">Enter password to access Final Authority.</p>
+    <div class="toolbar" style="justify-content:center;margin-top:14px;">
+      <input class="input" id="manager-pass" placeholder="Password" type="password" style="width:260px"/>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-primary" id="manager-enter">Enter</button>
+      <button class="btn" id="manager-cancel">Cancel</button>
+    </div>
+    <p class="meta warn" id="manager-error" style="display:none;margin-top:10px;">Incorrect password.</p>
+  </div>
+</div>
+
+<footer>
+  <p>The Apex Sales System</p>
+  <p style="margin-top:8px;">Power proves itself most clearly when it is not used.</p>
+</footer>
+
+<script>
+  // -----------------------------
+  // CONFIG
+  // -----------------------------
+  const MANAGER_PASSWORD = "coffee";
+
+  // -----------------------------
+  // STATE + DATA
+  // -----------------------------
+  const state = {
+    currentPage: "home",
+    currentDay: 1,
+    completedDays: new Set(),
+    managerAuthorized: false,
+    dayFilter: ""
+  };
+
+  const data = {
+    apexDays: [],
+    persuasion: [],
+    appointment: [],
+    authority: []
+  };
+
+  // -----------------------------
+  // HELPERS
+  // -----------------------------
+  const $  = (sel) => document.querySelector(sel);
+  const $$ = (sel) => document.querySelectorAll(sel);
+
+  function assetUrl(filename){
+    // robust for GitHub Pages subpaths
+    return new URL(filename, window.location.href).toString();
+  }
+
+  function escapeHtml(s){
+    return String(s ?? "")
+      .replaceAll("&","&amp;")
+      .replaceAll("<","&lt;")
+      .replaceAll(">","&gt;");
+  }
+
+  function toHtmlText(text){
+    // preserve paragraphs and bullet lines
+    const t = String(text ?? "").trim();
+    if(!t) return "";
+    const parts = t.split(/
+{2,}/g).map(p => p.trim()).filter(Boolean);
+    return parts.map(p => `<p>${escapeHtml(p).replaceAll("
+","<br>")}</p>`).join("");
+  }
+
+  // -----------------------------
+  // MANAGER MODAL
+  // -----------------------------
+  function openManagerModal(onSuccess){
+    $('#manager-error').style.display = 'none';
+    $('#manager-pass').value = '';
+    $('#manager-modal').classList.add('active');
+    setTimeout(()=>$('#manager-pass').focus(), 50);
+
+    const enter = () => {
+      const val = $('#manager-pass').value;
+      if(val !== MANAGER_PASSWORD){
+        $('#manager-error').style.display = 'block';
+        return;
+      }
+      state.managerAuthorized = true;
+      closeManagerModal();
+      onSuccess?.();
+    };
+
+    const cancel = () => closeManagerModal();
+
+    // one-time wiring per open
+    const enterBtn = $('#manager-enter');
+    const cancelBtn = $('#manager-cancel');
+    const pass = $('#manager-pass');
+
+    enterBtn.onclick = enter;
+    cancelBtn.onclick = cancel;
+    pass.onkeydown = (e)=>{ if(e.key === 'Enter') enter(); if(e.key==='Escape') cancel(); };
+  }
+
+  function closeManagerModal(){
+    $('#manager-modal').classList.remove('active');
+  }
+
+  // -----------------------------
+  // NAVIGATION
+  // -----------------------------
+  function navigateToPage(pageName){
+    if(pageName === 'authority' && !state.managerAuthorized){
+      openManagerModal(()=>navigateToPage('authority'));
+      return;
+    }
+
+    $$('.page').forEach(p => p.classList.add('hidden'));
+    const target = $(`#page-${pageName}`);
+    if(target){
+      target.classList.remove('hidden');
+      target.classList.add('fade-in');
+      setTimeout(()=>target.classList.remove('fade-in'), 300);
+    }
+    $$('.nav-link').forEach(a => a.classList.toggle('active', a.dataset.page === pageName));
+    state.currentPage = pageName;
+    window.scrollTo(0,0);
+  }
+
+  // Home cards
+  $$('[data-jump]').forEach(btn=>{
+    btn.addEventListener('click', ()=> navigateToPage(btn.dataset.jump));
+  });
+
+  // Top nav links
+  $$('.nav-link').forEach(link=>{
+    link.addEventListener('click', (e)=>{
+      e.preventDefault();
+      navigateToPage(link.dataset.page);
+    });
+  });
+
+  // -----------------------------
+  // APEX: DAILY RENDER
+  // -----------------------------
+  function updateProgressRing(day){
+    const circumference = 339.292;
+    const progress = (day / 90) * circumference;
+    const offset = circumference - progress;
+    $('#progress-circle').style.strokeDashoffset = offset;
+  }
+
+  function getFilteredDays(){
+    const q = (state.dayFilter || "").trim().toLowerCase();
+    if(!q) return data.apexDays;
+    return data.apexDays.filter(d => {
+      const hay = `${d.day} ${d.title} ${d.signal} ${d.misread} ${d.diagnosis} ${d.safeLanguage} ${d.practice} ${d.check}`.toLowerCase();
+      return hay.includes(q);
+    });
+  }
+
+  function generateDayList(){
+    const list = $('#day-list');
+    const days = getFilteredDays();
+    list.innerHTML = days.map(d=>{
+      let cls = "day-list-item";
+      if(state.completedDays.has(d.day)) cls += " completed";
+      if(d.day === state.currentDay) cls += " current";
+      return `<li class="${cls}" data-day="${d.day}">Day ${d.day}: ${escapeHtml(d.title || "")}</li>`;
+    }).join("");
+
+    $$('#day-list [data-day]').forEach(li=>{
+      li.addEventListener('click', ()=>{
+        const day = Number(li.dataset.day);
+        loadDay(day);
+      });
+    });
+  }
+
+  function loadDay(dayNumber){
+    state.currentDay = dayNumber;
+
+    const dayObj = data.apexDays.find(d => Number(d.day) === Number(dayNumber)) || {
+      day: dayNumber,
+      title: `Day ${dayNumber}`,
+      signal: "Content not found. Make sure apex_days.json is present and valid.",
+      misread: "",
+      diagnosis: "",
+      interrupt: [],
+      safeLanguage: "",
+      practice: "",
+      check: ""
+    };
+
+    $('#current-day-display').textContent = `DAY ${dayNumber}`;
+
+    const interruptList = Array.isArray(dayObj.interrupt) ? dayObj.interrupt : [];
+    const html = `
+      <h2 style="margin-bottom: 26px;">${escapeHtml(dayObj.title || "")}</h2>
+
+      <div class="content-block">
+        <h4>The Signal</h4>
+        ${toHtmlText(dayObj.signal)}
+      </div>
+
+      <div class="content-block">
+        <h4>The Misread</h4>
+        ${toHtmlText(dayObj.misread)}
+      </div>
+
+      <div class="content-block">
+        <h4>The Correct Diagnosis</h4>
+        ${toHtmlText(dayObj.diagnosis)}
+      </div>
+
+      <div class="content-block">
+        <h4>The Interrupt</h4>
+        <ul>${interruptList.map(i=>`<li>${escapeHtml(i)}</li>`).join("")}</ul>
+      </div>
+
+      <div class="content-block">
+        <h4>The Safe Language</h4>
+        <div class="quote">${escapeHtml(dayObj.safeLanguage || "")}</div>
+      </div>
+
+      <div class="content-block">
+        <h4>The Practice</h4>
+        ${toHtmlText(dayObj.practice)}
+      </div>
+
+      <div class="content-block">
+        <h4>The Check</h4>
+        <p style="font-style:italic;color:#9B9B9B;">${escapeHtml(dayObj.check || "")}</p>
+      </div>
+
+      <div class="nav-controls">
+        <button class="btn" id="prev-day" ${dayNumber===1?'disabled':''}>← Previous</button>
+
+        <label class="checkbox-label">
+          <input type="checkbox" id="day-complete-check">
+          <span>Mark Complete</span>
+        </label>
+
+        <button class="btn" id="next-day" ${dayNumber===90?'disabled':''}>Next →</button>
+      </div>
+    `;
+    $('#daily-content').innerHTML = html;
+
+    updateProgressRing(dayNumber);
+    generateDayList();
+
+    // wire controls
+    const complete = $('#day-complete-check');
+    complete.checked = state.completedDays.has(dayNumber);
+    complete.onchange = (e)=>{
+      if(e.target.checked) state.completedDays.add(dayNumber);
+      else state.completedDays.delete(dayNumber);
+      generateDayList();
+    };
+
+    $('#next-day').onclick = ()=>{ if(dayNumber<90) loadDay(dayNumber+1); };
+    $('#prev-day').onclick = ()=>{ if(dayNumber>1) loadDay(dayNumber-1); };
+  }
+
+  // Apex start
+  $('#start-day-1').addEventListener('click', ()=>{
+    navigateToPage('daily');
+    loadDay(1);
+  });
+
+  $('#day-search').addEventListener('input', (e)=>{
+    state.dayFilter = e.target.value || "";
+    generateDayList();
+  });
+
+  // -----------------------------
+  // CHAPTER PAGES
+  // -----------------------------
+  function renderChapterList(kind, chapters){
+    const listEl = $(`#${kind}-list`);
+    const panelEl = $(`#${kind}-panel`);
+
+    listEl.innerHTML = chapters.map((c, idx)=>{
+      const title = c.title || c.name || `Chapter ${idx+1}`;
+      return `<li data-idx="${idx}">${escapeHtml(title)}</li>`;
+    }).join("");
+
+    const setActive = (idx)=>{
+      $$('#'+kind+'-list li').forEach(li=>li.classList.remove('active'));
+      const li = $(`#${kind}-list li[data-idx="${idx}"]`);
+      if(li) li.classList.add('active');
+
+      const c = chapters[idx];
+      if(!c){
+        panelEl.innerHTML = `<p class="meta">Select a chapter.</p>`;
+        return;
+      }
+      const title = escapeHtml(c.title || c.name || "");
+      const body = toHtmlText(c.content || c.body || "");
+      panelEl.innerHTML = `<h3 style="margin-bottom:10px;">${title}</h3>${body || '<p class="meta">No content.</p>'}`;
+    };
+
+    // click wiring
+    $$('#'+kind+'-list li').forEach(li=>{
+      li.addEventListener('click', ()=>{
+        setActive(Number(li.dataset.idx));
+      });
+    });
+
+    // default select first if exists
+    if(chapters.length) setActive(0);
+  }
+
+  function wireChapterSearch(kind, chapters){
+    const input = $(`#${kind}-search`);
+    if(!input) return;
+
+    input.addEventListener('input', ()=>{
+      const q = (input.value || "").trim().toLowerCase();
+      const filtered = !q ? chapters : chapters.filter(c=>{
+        const hay = `${c.title||""} ${c.content||""}`.toLowerCase();
+        return hay.includes(q);
+      });
+      renderChapterList(kind, filtered);
+    });
+  }
+
+  // -----------------------------
+  // CONTENT LOADING
+  // -----------------------------
+  async function loadAllContent(){
+    const status = $('#load-status');
+    const files = [
+      {key:'apexDays', url: assetUrl('apex_days.json')},
+      {key:'demand', url: assetUrl('apex_demand.json')},
+      {key:'persuasion', url: assetUrl('deep_persuasion.json')},
+      {key:'appointment', url: assetUrl('appointment.json')},
+      {key:'authority', url: assetUrl('final_authority.json')},
+    ];
+
+    const [apexRes, persRes, apptRes, authRes] = await Promise.all(files.map(f => fetch(f.url, {cache:'no-store'})));
+
+    if(!apexRes.ok || !persRes.ok || !apptRes.ok || !authRes.ok){
+      throw new Error(`Fetch failed. apex=${apexRes.status} persuasion=${persRes.status} appointment=${apptRes.status} authority=${authRes.status}`);
+    }
+
+    const apexJson = await apexRes.json();
+    const demandJson = await demandRes.json();
+    const persJson = await persRes.json();
+    const apptJson = await apptRes.json();
+    const authJson = await authRes.json();
+
+    data.apexDays = (apexJson.days || []).map(d => ({...d, day:Number(d.day)})).sort((a,b)=>a.day-b.day);
+    data.demand = (demandJson.pages || demandJson.chapters || []).map(p=>({title: p.title || p.name || `Page ${p.id||''}`, content: p.content || p.text || ''}));
+    data.persuasion = (persJson.chapters || []);
+    data.appointment = (apptJson.chapters || []);
+    data.authority = (authJson.chapters || []);
+
+    $('#apex-count').textContent = `Days loaded: ${data.apexDays.length}`;
+
+    // initial lists
+    generateDayList();
+    loadDay(1);
+
+    renderChapterList('dmd', data.demand);
+    renderChapterList('pers', data.persuasion);
+    renderChapterList('appt', data.appointment);
+    renderChapterList('auth', data.authority);
+
+    wireChapterSearch('dmd', data.demand);
+    wireChapterSearch('pers', data.persuasion);
+    wireChapterSearch('appt', data.appointment);
+    wireChapterSearch('auth', data.authority);
+
+    status.textContent = `Loaded: Apex ${data.apexDays.length} days • Deep Persuasion ${data.persuasion.length} chapters • Appointment ${data.appointment.length} chapters • Final Authority ${data.authority.length} chapters`;
+  }
+
+  (async function init(){
+    try{
+      await loadAllContent();
+      navigateToPage('home');
+    }catch(err){
+      console.error(err);
+      $('#load-status').innerHTML = `<span class="warn">Could not load content.</span> Make sure <strong>apex_days.json</strong>, <strong>deep_persuasion.json</strong>, <strong>appointment.json</strong>, and <strong>final_authority.json</strong> are in the <em>same folder</em> as <strong>index.html</strong>.`;
+      navigateToPage('home');
+    }
+  })();
+</script>
+</body>
+</html>
