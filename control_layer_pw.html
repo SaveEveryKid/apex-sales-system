@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>THE CONTROL LAYER — Managers Only</title>
+  <style>
+    :root{
+      --bg:#0b0c0e;
+      --panel:#121417;
+      --panel2:#0f1114;
+      --text:#e9e9e9;
+      --muted:#a6a6a6;
+      --line:#2a2d33;
+      --gold:#c8a94a;
+      --shadow: 0 12px 40px rgba(0,0,0,.45);
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 700px at 50% 10%, rgba(200,169,74,.10), rgba(0,0,0,0) 60%),
+                  radial-gradient(900px 500px at 10% 80%, rgba(200,169,74,.06), rgba(0,0,0,0) 55%),
+                  var(--bg);
+      color:var(--text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      min-height:100vh;
+    }
+    header{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: rgba(0,0,0,.55);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .topbar{
+      max-width:1200px;
+      margin:0 auto;
+      padding:14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+    .brand .title{
+      font-size:14px;
+      letter-spacing:.18em;
+      font-weight:700;
+    }
+    .brand .sub{
+      font-size:11px;
+      color:var(--muted);
+      letter-spacing:.08em;
+    }
+    .nav a{
+      color:var(--muted);
+      text-decoration:none;
+      font-size:12px;
+      letter-spacing:.10em;
+      padding:8px 10px;
+      border-radius:10px;
+      border:1px solid transparent;
+    }
+    .nav a:hover{
+      color:var(--text);
+      border-color:rgba(200,169,74,.25);
+      background: rgba(200,169,74,.08);
+    }
+
+    .wrap{
+      max-width:1200px;
+      margin:22px auto;
+      padding:0 18px 28px;
+      display:grid;
+      grid-template-columns: 360px 1fr;
+      gap:18px;
+    }
+    .side, .main{
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.07);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .side{
+      padding:16px;
+      position:sticky;
+      top:74px;
+      height: calc(100vh - 110px);
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .search{
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .search input{
+      width:100%;
+      background: rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.10);
+      color:var(--text);
+      padding:10px 12px;
+      border-radius:12px;
+      outline:none;
+      font-size:12px;
+    }
+    .search input:focus{
+      border-color: rgba(200,169,74,.45);
+      box-shadow: 0 0 0 3px rgba(200,169,74,.12);
+    }
+    .chapters{
+      overflow:auto;
+      padding-right:6px;
+    }
+    .item{
+      padding:12px 12px;
+      border-radius:12px;
+      cursor:pointer;
+      border:1px solid transparent;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.35;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
+    .item:hover{
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      border-color: rgba(255,255,255,.08);
+    }
+    .item.active{
+      background: rgba(200,169,74,.10);
+      border-color: rgba(200,169,74,.35);
+      color: var(--text);
+      position:relative;
+    }
+    .item.active::before{
+      content:"";
+      position:absolute;
+      left:-1px; top:10px; bottom:10px;
+      width:3px;
+      border-radius:3px;
+      background: var(--gold);
+    }
+    .main{
+      padding:0;
+      min-height: calc(100vh - 110px);
+      display:flex;
+      flex-direction:column;
+    }
+    .mainHead{
+      padding:18px 20px;
+      border-bottom:1px solid rgba(255,255,255,.07);
+      background: rgba(0,0,0,.25);
+    }
+    .mainHead h1{
+      margin:0;
+      font-size:16px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+    }
+    .mainBody{
+      padding:22px 22px 34px;
+      overflow:auto;
+    }
+    .mainBody h2{
+      margin:0 0 14px;
+      font-size:18px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+    .mainBody .content{
+      color:var(--text);
+      font-size:14px;
+      line-height:1.6;
+      white-space:pre-wrap;
+    }
+    .tag{
+      display:inline-block;
+      margin-top:8px;
+      font-size:11px;
+      color:var(--muted);
+      letter-spacing:.10em;
+    }
+
+    /* Mobile */
+    @media (max-width: 980px){
+      .wrap{ grid-template-columns: 1fr; }
+      .side{ position:relative; top:auto; height:auto; }
+      .main{ min-height:auto; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="topbar">
+    <div class="brand">
+      <div class="title">THE CONTROL LAYER</div>
+      <div class="sub">Managers Only • Password Required</div>
+    </div>
+    <div class="nav">
+      <a href="index.html">Home</a>
+      <a href="#" id="lockBtn" title="Lock again">Lock</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <aside class="side">
+    <div class="search">
+      <input id="search" type="text" placeholder="Search chapters..." autocomplete="off" />
+    </div>
+    <div id="chapters" class="chapters"></div>
+  </aside>
+
+  <main class="main">
+    <div class="mainHead">
+      <h1 id="docTitle">Loading…</h1>
+      <div class="tag" id="docTag">Internal training • Do not share</div>
+    </div>
+    <div class="mainBody">
+      <h2 id="chapterTitle"></h2>
+      <div class="content" id="chapterContent"></div>
+    </div>
+  </main>
+</div>
+
+<script>
+  const STORAGE_KEY = "apex_control_layer_unlocked";
+  const PASSWORD = "theboss";
+  const JSON_URL = "control_layer.json";
+
+  function locked() {
+    return localStorage.getItem(STORAGE_KEY) !== "1";
+  }
+
+  function requirePassword() {
+    if (!locked()) return true;
+    const attempt = prompt("Managers only. Enter password:");
+    if (attempt === null) return false;
+    if (attempt.trim() === PASSWORD) {
+      localStorage.setItem(STORAGE_KEY, "1");
+      return true;
+    }
+    alert("Incorrect password.");
+    return requirePassword();
+  }
+
+  document.getElementById("lockBtn").addEventListener("click", (e) => {
+    e.preventDefault();
+    localStorage.removeItem(STORAGE_KEY);
+    location.reload();
+  });
+
+  let DATA = null;
+  let ACTIVE_INDEX = 0;
+
+  function esc(s){ return (s||"").toString(); }
+
+  function renderList(filter=""){
+    const wrap = document.getElementById("chapters");
+    wrap.innerHTML = "";
+    const q = filter.trim().toLowerCase();
+
+    const chapters = DATA.chapters || [];
+    chapters.forEach((ch, idx) => {
+      const hay = (ch.title + "\n" + ch.content).toLowerCase();
+      if (q && !hay.includes(q)) return;
+
+      const div = document.createElement("div");
+      div.className = "item" + (idx === ACTIVE_INDEX ? " active" : "");
+      div.textContent = ch.title;
+      div.addEventListener("click", () => {
+        ACTIVE_INDEX = idx;
+        renderList(document.getElementById("search").value);
+        renderChapter();
+        // keep main scrolled to top
+        document.querySelector(".mainBody").scrollTop = 0;
+      });
+      wrap.appendChild(div);
+    });
+
+    if (!wrap.children.length) {
+      const empty = document.createElement("div");
+      empty.style.color = "var(--muted)";
+      empty.style.fontSize = "12px";
+      empty.style.padding = "12px";
+      empty.textContent = "No matches.";
+      wrap.appendChild(empty);
+    }
+  }
+
+  function renderChapter(){
+    const ch = (DATA.chapters || [])[ACTIVE_INDEX] || {title:"",content:""};
+    document.getElementById("chapterTitle").textContent = ch.title || "";
+    document.getElementById("chapterContent").textContent = ch.content || "";
+    document.getElementById("docTitle").textContent = "THE CONTROL LAYER";
+  }
+
+  async function init(){
+    if (!requirePassword()) return;
+
+    try{
+      const res = await fetch(JSON_URL, {cache:"no-store"});
+      if(!res.ok) throw new Error("Failed to load JSON: " + res.status);
+      DATA = await res.json();
+      if(!DATA || !Array.isArray(DATA.chapters)) throw new Error("Invalid JSON format.");
+      ACTIVE_INDEX = 0;
+      renderList("");
+      renderChapter();
+    }catch(err){
+      document.getElementById("docTitle").textContent = "Load error";
+      document.getElementById("chapterTitle").textContent = "";
+      document.getElementById("chapterContent").textContent = err.message;
+    }
+  }
+
+  document.getElementById("search").addEventListener("input", (e) => {
+    renderList(e.target.value);
+  });
+
+  init();
+</script>
+</body>
+</html>
